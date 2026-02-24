@@ -1,47 +1,60 @@
 [gd_scene format=3 uid="uid://bittx0fs6022y"]
 
-[ext_resource type="Script" uid="uid://kqiaeee28lt8" path="res://Levels/GameLevel/game_level_logic.gd" id="1_d5cp0"]
 [ext_resource type="Texture2D" uid="uid://th2k24o0ul0h" path="res://Materials/HDRI/puresky_dusk.hdr" id="1_u2db0"]
 [ext_resource type="PackedScene" uid="uid://dgsb6f8vuvfy4" path="res://Player/pause_menu.tscn" id="2_fa5cs"]
 [ext_resource type="PackedScene" uid="uid://y01nc0no6pym" path="res://Player/Player.tscn" id="3_b6m8f"]
-[ext_resource type="Material" uid="uid://okcvho5ppq1r" path="res://Materials/Prototype_Green.tres" id="3_yvdnq"]
+[ext_resource type="Texture2D" uid="uid://6lrfq3q2c5bq" path="res://Textures/rock.png" id="4_cb68q"]
+[ext_resource type="Texture2D" uid="uid://b0agfb7xjttyi" path="res://Textures/grass_surface.png" id="5_fa5cs"]
 
-[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_d5cp0"]
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_yvdnq"]
 panorama = ExtResource("1_u2db0")
 energy_multiplier = 0.25
 
-[sub_resource type="Sky" id="Sky_yvdnq"]
-sky_material = SubResource("PanoramaSkyMaterial_d5cp0")
+[sub_resource type="Sky" id="Sky_cb68q"]
+sky_material = SubResource("PanoramaSkyMaterial_yvdnq")
 
-[sub_resource type="Environment" id="Environment_cb68q"]
+[sub_resource type="Environment" id="Environment_fa5cs"]
 background_mode = 2
-sky = SubResource("Sky_yvdnq")
+sky = SubResource("Sky_cb68q")
 
-[node name="GameLevel" type="Node3D" unique_id=2124591714]
-script = ExtResource("1_d5cp0")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fa5cs"]
+albedo_texture = ExtResource("4_cb68q")
+uv1_scale = Vector3(0.1, 0.1, 0.1)
+uv1_triplanar = true
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2069258583]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b6m8f"]
+albedo_texture = ExtResource("5_fa5cs")
+uv1_scale = Vector3(0.2, 0.2, 0.2)
+uv1_triplanar = true
 
-[node name="PauseMenu" parent="CanvasLayer" unique_id=481198827 instance=ExtResource("2_fa5cs")]
+[node name="game_level" type="Node3D" unique_id=1264758789]
 
-[node name="Player" parent="." unique_id=936299362 instance=ExtResource("3_b6m8f")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 2, 0)
+[node name="Player" parent="." unique_id=415425465 instance=ExtResource("3_b6m8f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 
-[node name="Environment" type="Node" parent="." unique_id=153134956]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=752345499]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="Environment" unique_id=65655482]
-environment = SubResource("Environment_cb68q")
+[node name="PauseMenu" parent="CanvasLayer" unique_id=1064055106 instance=ExtResource("2_fa5cs")]
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment" unique_id=1465072386]
-transform = Transform3D(0.73654586, 0.44725004, -0.5074127, -2.2351742e-08, 0.75018036, 0.66123325, 0.67638767, -0.48702866, 0.5525422, 0, 13.283188, 9.039683)
-shadow_enabled = true
+[node name="Environment" type="Node" parent="." unique_id=71948187]
 
-[node name="Beginning" type="Node3D" parent="." unique_id=309192964]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Environment" unique_id=1013910137]
+environment = SubResource("Environment_fa5cs")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="Beginning" unique_id=1225918195]
-transform = Transform3D(30, 0, 0, 0, 1, 0, 0, 0, 30, 0, 0, 0)
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment" unique_id=2067661062]
+transform = Transform3D(0.7299356, 0.25396872, -0.6345816, 0, 0.928408, 0.37156236, 0.68351597, -0.2712166, 0.67767817, -11.357981, 5.4131355, 10.45929)
+
+[node name="Beginning" type="Node3D" parent="." unique_id=827018081]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Beginning" unique_id=1877268991]
 use_collision = true
-material = ExtResource("3_yvdnq")
 
-[node name="Part1" type="Node3D" parent="." unique_id=1427103691]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, 0)
+[node name="BasePlate" type="CSGBox3D" parent="Beginning/CSGCombiner3D" unique_id=575837449]
+transform = Transform3D(30, 0, 0, 0, 1, 0, 0, 0, 30, 0, -1378.2305, 0)
+use_collision = true
+size = Vector3(1, 2757.461, 1)
+material = SubResource("StandardMaterial3D_fa5cs")
+
+[node name="Grass" type="CSGBox3D" parent="Beginning/CSGCombiner3D" unique_id=668599984]
+transform = Transform3D(30, 0, 0, 0, 1, 0, 0, 0, 30, 0, 1, 0)
+material = SubResource("StandardMaterial3D_b6m8f")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://cqcwpovqjciwm"]
+[gd_scene format=3 uid="uid://cqcwpovqjciwm"]
 
 [ext_resource type="ArrayMesh" uid="uid://dvxmm1p0st4lc" path="res://Objects/Models/RockPlatform.obj" id="1_fi0v0"]
 [ext_resource type="Texture2D" uid="uid://6lrfq3q2c5bq" path="res://Textures/rock.png" id="2_bxye7"]
@@ -6,8 +6,15 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ke5cc"]
 albedo_texture = ExtResource("2_bxye7")
 
-[node name="RockPlatform" type="Node3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_fi0v0"]
+size = Vector3(1.0361328, 0.731658, 1)
 
-[node name="RockPlatform" type="MeshInstance3D" parent="."]
+[node name="RockPlatform" type="RigidBody3D" unique_id=2134912655]
+
+[node name="RockPlatform" type="MeshInstance3D" parent="." unique_id=1796676867]
 mesh = ExtResource("1_fi0v0")
 surface_material_override/0 = SubResource("StandardMaterial3D_ke5cc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=814518982]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.24716377, 0)
+shape = SubResource("BoxShape3D_fi0v0")
