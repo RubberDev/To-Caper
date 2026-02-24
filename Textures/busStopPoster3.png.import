@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://db5utrjr8lj1k"
-path.s3tc="res://.godot/imported/grasstex.png-976ff8d1ba43f99731a57c90b8fd7f12.s3tc.ctex"
+uid="uid://c7xyexbpjqwm0"
+path.s3tc="res://.godot/imported/busStopPoster3.png-3247d9a50ce7be92e05ef987167e2cf8.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Textures/grasstex.png"
-dest_files=["res://.godot/imported/grasstex.png-976ff8d1ba43f99731a57c90b8fd7f12.s3tc.ctex"]
+source_file="res://Textures/busStopPoster3.png"
+dest_files=["res://.godot/imported/busStopPoster3.png-3247d9a50ce7be92e05ef987167e2cf8.s3tc.ctex"]
 
 [params]
 

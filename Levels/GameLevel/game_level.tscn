@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://bittx0fs6022y"]
+
+[ext_resource type="Script" uid="uid://kqiaeee28lt8" path="res://Levels/GameLevel/game_level_logic.gd" id="1_d5cp0"]
+[ext_resource type="Texture2D" uid="uid://th2k24o0ul0h" path="res://Materials/HDRI/puresky_dusk.hdr" id="1_u2db0"]
+[ext_resource type="PackedScene" uid="uid://dgsb6f8vuvfy4" path="res://Player/pause_menu.tscn" id="2_fa5cs"]
+[ext_resource type="PackedScene" uid="uid://y01nc0no6pym" path="res://Player/Player.tscn" id="3_b6m8f"]
+[ext_resource type="Material" uid="uid://okcvho5ppq1r" path="res://Materials/Prototype_Green.tres" id="3_yvdnq"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_d5cp0"]
+panorama = ExtResource("1_u2db0")
+energy_multiplier = 0.25
+
+[sub_resource type="Sky" id="Sky_yvdnq"]
+sky_material = SubResource("PanoramaSkyMaterial_d5cp0")
+
+[sub_resource type="Environment" id="Environment_cb68q"]
+background_mode = 2
+sky = SubResource("Sky_yvdnq")
+
+[node name="GameLevel" type="Node3D" unique_id=2124591714]
+script = ExtResource("1_d5cp0")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2069258583]
+
+[node name="PauseMenu" parent="CanvasLayer" unique_id=481198827 instance=ExtResource("2_fa5cs")]
+
+[node name="Player" parent="." unique_id=936299362 instance=ExtResource("3_b6m8f")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 2, 0)
+
+[node name="Environment" type="Node" parent="." unique_id=153134956]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Environment" unique_id=65655482]
+environment = SubResource("Environment_cb68q")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment" unique_id=1465072386]
+transform = Transform3D(0.73654586, 0.44725004, -0.5074127, -2.2351742e-08, 0.75018036, 0.66123325, 0.67638767, -0.48702866, 0.5525422, 0, 13.283188, 9.039683)
+shadow_enabled = true
+
+[node name="Beginning" type="Node3D" parent="." unique_id=309192964]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Beginning" unique_id=1225918195]
+transform = Transform3D(30, 0, 0, 0, 1, 0, 0, 0, 30, 0, 0, 0)
+use_collision = true
+material = ExtResource("3_yvdnq")
+
+[node name="Part1" type="Node3D" parent="." unique_id=1427103691]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, 0)

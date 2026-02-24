@@ -22,6 +22,8 @@ var cidle_val : float = 0.0
 var cwalk_val : float = 0.0
 var sprint_val : float = 0.0
 
+var money = 0.0
+
 func handle_anims(delta):
 	match Current_Anim:
 		IDLE:
@@ -110,6 +112,9 @@ func _physics_process(delta: float) -> void:
 				Current_Anim = CROUCH
 
 	move_and_slide()
+
+func _process(_delta: float) -> void:
+	$Control/Panel/Label.text = "$" + str(money)
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:

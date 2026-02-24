@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://y01nc0no6pym"]
+[gd_scene format=3 uid="uid://y01nc0no6pym"]
 
 [ext_resource type="Texture2D" uid="uid://dbokmjtrsem3n" path="res://Textures/PlayerFace.png" id="1_3qydi"]
 [ext_resource type="Script" uid="uid://g4068qi3vkwu" path="res://Player/Scripts/player.gd" id="1_q3lat"]
@@ -940,79 +940,105 @@ nodes/SprintBlend/position = Vector2(380, 120)
 "nodes/Anim Sprint/position" = Vector2(220, 380)
 node_connections = [&"output", 0, &"SprintBlend", &"Walk Blend", 0, &"Anim Idle", &"Walk Blend", 1, &"Anim Walk", &"CrouchIdleBlend", 0, &"Walk Blend", &"CrouchIdleBlend", 1, &"Anim Crouch", &"CrouchWalkBlend", 0, &"CrouchIdleBlend", &"CrouchWalkBlend", 1, &"Anim Crouchwalk", &"SprintBlend", 0, &"CrouchWalkBlend", &"SprintBlend", 1, &"Anim Sprint"]
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" unique_id=415425465]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 script = ExtResource("1_q3lat")
 
-[node name="Sound" type="Node" parent="."]
+[node name="Sound" type="Node" parent="." unique_id=1997379453]
 
-[node name="PlayerJump" type="AudioStreamPlayer" parent="Sound"]
+[node name="PlayerJump" type="AudioStreamPlayer" parent="Sound" unique_id=385717185]
 stream = ExtResource("2_tok1r")
 
-[node name="PlyrCamera3D" type="Camera3D" parent="."]
+[node name="Control" type="Control" parent="." unique_id=733401038]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Control" unique_id=1973362746]
+layout_mode = 0
+offset_left = 870.0
+offset_top = 24.0
+offset_right = 1122.0
+offset_bottom = 102.0
+
+[node name="Label" type="Label" parent="Control/Panel" unique_id=986879664]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.33684218, 0.7861843, 0, 1)
+theme_override_font_sizes/font_size = 42
+text = "$0.0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlyrCamera3D" type="Camera3D" parent="." unique_id=2080509272]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5356543, -0.062907934)
 cull_mask = 1048573
 current = true
 
-[node name="IntCheck" type="RayCast3D" parent="PlyrCamera3D"]
+[node name="IntCheck" type="RayCast3D" parent="PlyrCamera3D" unique_id=1204356185]
 target_position = Vector3(0, 0, -1)
 
-[node name="CollisionBody" type="CollisionShape3D" parent="."]
+[node name="CollisionBody" type="CollisionShape3D" parent="." unique_id=1672665750]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.24731445, 0)
 shape = SubResource("CapsuleShape3D_3qydi")
 
-[node name="CrouchCollision" type="CollisionShape3D" parent="."]
+[node name="CrouchCollision" type="CollisionShape3D" parent="." unique_id=1667020498]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.37789917, 0)
 shape = SubResource("CapsuleShape3D_tok1r")
 
-[node name="Body2" type="Node3D" parent="."]
+[node name="Body2" type="Node3D" parent="." unique_id=592411421]
 
-[node name="Body" type="MeshInstance3D" parent="Body2"]
+[node name="Body" type="MeshInstance3D" parent="Body2" unique_id=25803461]
 transform = Transform3D(0.5196615, 0, 0, 0, 0.47583959, 0.008600986, 0, -0.017390031, 0.23534687, 0, 0.016958714, 0)
 layers = 2
 mesh = SubResource("CapsuleMesh_l2ndj")
 skeleton = NodePath("../../CollisionBody")
 surface_material_override/0 = ExtResource("3_ddoul")
 
-[node name="Face" type="Sprite3D" parent="Body2/Body"]
+[node name="Face" type="Sprite3D" parent="Body2/Body" unique_id=85454193]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.29999998, 0, 0, -0.5003421)
 layers = 2
 texture = ExtResource("1_3qydi")
 
-[node name="Leg" type="MeshInstance3D" parent="Body2"]
+[node name="Leg" type="MeshInstance3D" parent="Body2" unique_id=1783387880]
 transform = Transform3D(0.099999994, 0, 0, 0, 0.6000001, 0, 0, 0, 0.09999997, 0.16065434, -0.69625634, 0)
 layers = 3
 mesh = SubResource("BoxMesh_q3lat")
 skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("3_ddoul")
 
-[node name="Leg2" type="MeshInstance3D" parent="Body2"]
+[node name="Leg2" type="MeshInstance3D" parent="Body2" unique_id=489575916]
 transform = Transform3D(0.09999998, 0, 0, 0, 0.59999996, 0, 0, 0, 0.099999964, -0.161, -0.696, 0)
 layers = 3
 mesh = SubResource("BoxMesh_q3lat")
 skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("3_ddoul")
 
-[node name="Arm" type="MeshInstance3D" parent="Body2"]
+[node name="Arm" type="MeshInstance3D" parent="Body2" unique_id=1349776194]
 transform = Transform3D(0.09616456, 0.21887144, 0, -0.027429491, 0.76733744, 0, 0, 0, 0.1, -0.34770685, -0.2099337, 0)
 layers = 3
 mesh = SubResource("BoxMesh_q3lat")
 skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("3_ddoul")
 
-[node name="Arm2" type="MeshInstance3D" parent="Body2"]
+[node name="Arm2" type="MeshInstance3D" parent="Body2" unique_id=393145604]
 transform = Transform3D(0.09617416, -0.21860373, 0, 0.027395923, 0.7674145, 0, 0, 0, 0.09999997, 0.348, -0.21042925, 0)
 layers = 3
 mesh = SubResource("BoxMesh_q3lat")
 skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("3_ddoul")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_ddoul")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1279928149]
+libraries/ = SubResource("AnimationLibrary_ddoul")
 
-[node name="AnimationTree" type="AnimationTree" parent="."]
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=407546893]
 active = false
 tree_root = SubResource("AnimationNodeBlendTree_tok1r")
 anim_player = NodePath("../AnimationPlayer")
@@ -1021,6 +1047,6 @@ parameters/CrouchIdleBlend/blend_amount = 0.0
 parameters/CrouchWalkBlend/blend_amount = 0.0
 parameters/SprintBlend/blend_amount = 0.0
 
-[node name="RayCast3D" type="RayCast3D" parent="."]
+[node name="RayCast3D" type="RayCast3D" parent="." unique_id=1803463391]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2357589, 0)
 target_position = Vector3(0, 0.4, 0)

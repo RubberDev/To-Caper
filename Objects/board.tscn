@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://b2u73lik4dojp"]
+
+[ext_resource type="Texture2D" uid="uid://cvmaiwfyfv5dv" path="res://Textures/wood.jpeg" id="1_tirlp"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jhdow"]
+albedo_texture = ExtResource("1_tirlp")
+uv1_scale = Vector3(1.345, 0.1, 0.52)
+uv1_offset = Vector3(-0.005, 0.06, 0.31)
+uv1_triplanar = true
+
+[node name="Board" type="Node3D" unique_id=323055916]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1210149880]
+transform = Transform3D(2.7399213, 0, 0, 0, 0.11729121, 0, 0, 0, 0.7350222, 0, 0, 0)
+material = SubResource("StandardMaterial3D_jhdow")

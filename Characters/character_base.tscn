@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bktepimvpvmm6"]
+[gd_scene format=3 uid="uid://bktepimvpvmm6"]
 
 [ext_resource type="Material" uid="uid://dki01sku0x1cf" path="res://Materials/Pure_White.tres" id="1_fx765"]
 [ext_resource type="Texture2D" uid="uid://dbokmjtrsem3n" path="res://Textures/PlayerFace.png" id="2_56dnp"]
@@ -890,55 +890,54 @@ _data = {
 &"Walk": SubResource("Animation_ddoul")
 }
 
-[node name="CharacterBase" type="Node3D"]
+[node name="CharacterBase" type="Node3D" unique_id=1318948685]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
-[node name="CollisionBody" type="CollisionShape3D" parent="."]
+[node name="CollisionBody" type="CollisionShape3D" parent="." unique_id=1559142278]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.24731445, 0)
+visible = false
 shape = SubResource("CapsuleShape3D_y05t7")
 
-[node name="Body2" type="Node3D" parent="."]
+[node name="Body2" type="Node3D" parent="." unique_id=518991292]
 
-[node name="Body" type="MeshInstance3D" parent="Body2"]
+[node name="Body" type="MeshInstance3D" parent="Body2" unique_id=2069697152]
 transform = Transform3D(0.5196615, 0, 0, 0, 0.47583959, 0.008600986, 0, -0.017390031, 0.23534687, 0, 0.016958714, 0)
 layers = 2
 mesh = SubResource("CapsuleMesh_so4cy")
 skeleton = NodePath("../../CollisionBody")
 surface_material_override/0 = ExtResource("1_fx765")
 
-[node name="Face" type="Sprite3D" parent="Body2/Body"]
+[node name="Face" type="Sprite3D" parent="Body2/Body" unique_id=1525831815]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.29999998, 0, 0, -0.5003421)
 texture = ExtResource("2_56dnp")
 
-[node name="Leg" type="MeshInstance3D" parent="Body2"]
+[node name="Leg" type="MeshInstance3D" parent="Body2" unique_id=2087438986]
 transform = Transform3D(0.099999994, 0, 0, 0, 0.6000001, 0, 0, 0, 0.09999997, 0.16065434, -0.69625634, 0)
 layers = 3
 mesh = SubResource("BoxMesh_b2gob")
 skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("1_fx765")
 
-[node name="Leg2" type="MeshInstance3D" parent="Body2"]
+[node name="Leg2" type="MeshInstance3D" parent="Body2" unique_id=2062703228]
 transform = Transform3D(0.09999998, 0, 0, 0, 0.59999996, 0, 0, 0, 0.099999964, -0.161, -0.696, 0)
 layers = 3
 mesh = SubResource("BoxMesh_b2gob")
 skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("1_fx765")
 
-[node name="Arm" type="MeshInstance3D" parent="Body2"]
+[node name="Arm" type="MeshInstance3D" parent="Body2" unique_id=743092279]
 transform = Transform3D(0.09616456, 0.21887144, 0, -0.027429491, 0.76733744, 0, 0, 0, 0.1, -0.34770685, -0.2099337, 0)
 layers = 3
 mesh = SubResource("BoxMesh_b2gob")
 skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("1_fx765")
 
-[node name="Arm2" type="MeshInstance3D" parent="Body2"]
+[node name="Arm2" type="MeshInstance3D" parent="Body2" unique_id=1896609926]
 transform = Transform3D(0.09617416, -0.21860373, 0, 0.027395923, 0.7674145, 0, 0, 0, 0.09999997, 0.348, -0.21042925, 0)
 layers = 3
 mesh = SubResource("BoxMesh_b2gob")
 skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("1_fx765")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_ddoul")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1654697215]
+libraries/ = SubResource("AnimationLibrary_ddoul")
