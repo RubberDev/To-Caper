@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dli4qdq71p0gf"]
+
+[ext_resource type="Texture2D" uid="uid://e1pkc2135n48" path="res://Textures/plywood_diff_1k.png" id="1_o6xwo"]
+
+[resource]
+albedo_texture = ExtResource("1_o6xwo")

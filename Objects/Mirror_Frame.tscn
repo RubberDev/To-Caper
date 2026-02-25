@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://6eojjbur7vme"]
+
+[ext_resource type="PackedScene" uid="uid://dkwcf1ewj8byt" path="res://Objects/Models/mirrorBase.glb" id="1_q6fgh"]
+[ext_resource type="Material" uid="uid://cxvgjdapex3tk" path="res://Materials/Metal_02.tres" id="2_7xusc"]
+
+[node name="MirrorFrame" type="Node3D" unique_id=51320287]
+
+[node name="mirrorBase" parent="." unique_id=1434710089 instance=ExtResource("1_q6fgh")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="base" parent="mirrorBase" index="0" unique_id=963067563]
+surface_material_override/0 = ExtResource("2_7xusc")
+
+[editable path="mirrorBase"]

@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://bwb3lf4nujqjp"]
+
+[ext_resource type="PackedScene" uid="uid://inrmstin4udg" path="res://Objects/Models/CharHouse.glb" id="1_7ni02"]
+[ext_resource type="Material" uid="uid://rki8oc7x474d" path="res://Materials/concrete_01.tres" id="2_07fn0"]
+[ext_resource type="Material" uid="uid://dli4qdq71p0gf" path="res://Materials/plywood.tres" id="3_g6h52"]
+[ext_resource type="Material" uid="uid://kmweysxgwke" path="res://Materials/White_Paint.tres" id="4_4wadm"]
+[ext_resource type="Material" uid="uid://csq273t1a84a0" path="res://Materials/glass1.tres" id="4_7txk5"]
+[ext_resource type="Material" uid="uid://dllwalcodg1hs" path="res://Materials/Prototype_Black.tres" id="5_vpr5s"]
+[ext_resource type="Material" uid="uid://cajb8amju6cks" path="res://Materials/Brown_Tiling.tres" id="7_vpr5s"]
+
+[node name="House" type="Node3D" unique_id=85175485]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+
+[node name="CharHouse" parent="." unique_id=703489732 instance=ExtResource("1_7ni02")]
+
+[node name="foundation" parent="CharHouse" index="12" unique_id=1967697252]
+surface_material_override/0 = ExtResource("2_07fn0")
+
+[node name="porchsupport" parent="CharHouse" index="13" unique_id=1807449936]
+surface_material_override/0 = ExtResource("3_g6h52")
+
+[node name="stairs" parent="CharHouse" index="14" unique_id=752105031]
+surface_material_override/0 = ExtResource("3_g6h52")
+
+[node name="supports" parent="CharHouse" index="15" unique_id=1778542202]
+surface_material_override/0 = ExtResource("3_g6h52")
+
+[node name="planks" parent="CharHouse" index="16" unique_id=474367068]
+surface_material_override/0 = ExtResource("3_g6h52")
+surface_material_override/1 = ExtResource("3_g6h52")
+
+[node name="walls" parent="CharHouse" index="17" unique_id=650464531]
+surface_material_override/0 = ExtResource("4_4wadm")
+
+[node name="counter" parent="CharHouse" index="18" unique_id=1891940297]
+surface_material_override/0 = ExtResource("4_4wadm")
+
+[node name="roof" parent="CharHouse" index="19" unique_id=723817785]
+surface_material_override/0 = ExtResource("5_vpr5s")
+
+[node name="frames" parent="CharHouse" index="20" unique_id=1707191393]
+surface_material_override/0 = ExtResource("3_g6h52")
+
+[node name="windows" parent="CharHouse" index="21" unique_id=1850415303]
+surface_material_override/0 = ExtResource("4_7txk5")
+
+[node name="floor" parent="CharHouse" index="22" unique_id=152563748]
+surface_material_override/0 = ExtResource("7_vpr5s")
+
+[node name="handrail" parent="CharHouse" index="23" unique_id=474840499]
+surface_material_override/0 = ExtResource("3_g6h52")
+
+[editable path="CharHouse"]
