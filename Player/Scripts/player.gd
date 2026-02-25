@@ -143,3 +143,10 @@ func _input(event: InputEvent) -> void:
 		if is_crouched == false:
 			sprinting = false
 			SPEED = DEFAULT_SPEED
+	
+	# Doesn't work for whatever reason, smth to do with has_method
+	if Input.is_action_just_pressed("Interact"):
+		if $PlyrCamera3D/IntCheck.is_colliding():
+			var Collider = $PlyrCamera3D/IntCheck.get_collider()
+			if Collider.has_method("Interact"):
+				Collider.Interact()

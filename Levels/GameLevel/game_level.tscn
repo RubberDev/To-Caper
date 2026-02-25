@@ -6,7 +6,13 @@
 [ext_resource type="Texture2D" uid="uid://6lrfq3q2c5bq" path="res://Textures/rock.png" id="4_cb68q"]
 [ext_resource type="Texture2D" uid="uid://b0agfb7xjttyi" path="res://Textures/grass_surface.png" id="5_fa5cs"]
 [ext_resource type="PackedScene" uid="uid://bwb3lf4nujqjp" path="res://Objects/house.tscn" id="6_b6m8f"]
+[ext_resource type="Material" uid="uid://fcsahucc3s1g" path="res://Materials/Dirt_01.tres" id="6_gtbq3"]
 [ext_resource type="PackedScene" uid="uid://6eojjbur7vme" path="res://Objects/Mirror_Frame.tscn" id="7_e84dk"]
+[ext_resource type="PackedScene" uid="uid://s33m1nd6cg14" path="res://Objects/TVandStand.tscn" id="8_mp5xv"]
+[ext_resource type="PackedScene" uid="uid://bgyqgrie0cthq" path="res://Objects/tall_grass.tscn" id="10_1cpm7"]
+[ext_resource type="PackedScene" uid="uid://bbnj28hyq8rk8" path="res://Objects/chair_01.tscn" id="11_gtbq3"]
+[ext_resource type="PackedScene" uid="uid://cdopbw81svmv4" path="res://Objects/Collectibles/coin.tscn" id="12_whmur"]
+[ext_resource type="PackedScene" uid="uid://cfq7evo0gojtd" path="res://Objects/Collectibles/money.tscn" id="13_pbw2v"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_yvdnq"]
 panorama = ExtResource("1_u2db0")
@@ -29,13 +35,20 @@ albedo_texture = ExtResource("5_fa5cs")
 uv1_scale = Vector3(0.2, 0.2, 0.2)
 uv1_triplanar = true
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_e84dk"]
+viewport_path = NodePath("Beginning/MirrorFrame/Mirror/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wf5o3"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_e84dk")
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_e84dk"]
 size = Vector3(0.44921875, 1.6132813, 2.3687744)
 
 [node name="game_level" type="Node3D" unique_id=1264758789]
 
 [node name="Player" parent="." unique_id=415425465 instance=ExtResource("3_b6m8f")]
-transform = Transform3D(-0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, -0.70710677, 0, 3.9084187, 0)
+transform = Transform3D(-0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, -0.70710677, 0, 3.6154003, 0)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=752345499]
 
@@ -48,8 +61,17 @@ environment = SubResource("Environment_fa5cs")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment" unique_id=2067661062]
 transform = Transform3D(0.7299356, 0.25396872, -0.6345816, 0, 0.928408, 0.37156236, 0.68351597, -0.2712166, 0.67767817, -11.357981, 5.4131355, 10.45929)
+light_color = Color(0.904459, 0.82025677, 7.70092e-07, 1)
+shadow_enabled = true
 
 [node name="Beginning" type="Node3D" parent="." unique_id=827018081]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Beginning" unique_id=1722479050]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.522417, 0)
+light_color = Color(0.9630161, 0.77281606, 3.85046e-07, 1)
+light_energy = 5.689
+shadow_enabled = true
+omni_range = 9.658691
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="Beginning" unique_id=1877268991]
 use_collision = true
@@ -64,11 +86,33 @@ material = SubResource("StandardMaterial3D_fa5cs")
 transform = Transform3D(30, 0, 0, 0, 1, 0, 0, 0, 30, 0, 1, 0)
 material = SubResource("StandardMaterial3D_b6m8f")
 
+[node name="negative" type="CSGBox3D" parent="Beginning/CSGCombiner3D" unique_id=1131799052]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.852089, 1.4231306, -0.03443384)
+operation = 2
+size = Vector3(3.7983398, 0.1940918, 9.867349)
+material = ExtResource("6_gtbq3")
+
+[node name="Dirt" type="CSGBox3D" parent="Beginning/CSGCombiner3D" unique_id=1888103011]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.852089, 1.3811697, -0.03443384)
+size = Vector3(3.7983398, 0.1940918, 9.867349)
+material = ExtResource("6_gtbq3")
+
 [node name="House" parent="Beginning" unique_id=85175485 instance=ExtResource("6_b6m8f")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 2.0067327, 0)
 
 [node name="MirrorFrame" parent="Beginning" unique_id=51320287 instance=ExtResource("7_e84dk")]
-transform = Transform3D(0.61425763, 0, 0.78910553, 0, 1, 0, -0.78910553, 0, 0.61425763, -4.5441933, 3.3806558, 4.547495)
+transform = Transform3D(0.61425763, 0, 1.2353908, 0, 1.3668356, 0, -0.78910553, 0, 0.9616562, -4.5441933, 3.6570225, 4.547495)
+
+[node name="Mirror" type="CSGBox3D" parent="Beginning/MirrorFrame" unique_id=1472066720]
+transform = Transform3D(0.9834801, 2.9802322e-08, -0.1810169, 0.18101701, -3.2375493e-08, 0.9834801, 0, -0.62076646, -2.2351742e-08, 0.008947849, -0.0045859814, -0.007935524)
+size = Vector3(0.030212402, 1.5871582, 1.5886841)
+material = SubResource("StandardMaterial3D_wf5o3")
+
+[node name="SubViewport" type="SubViewport" parent="Beginning/MirrorFrame/Mirror" unique_id=1991011912]
+size = Vector2i(300, 512)
+
+[node name="Camera3D" type="Camera3D" parent="Beginning/MirrorFrame/Mirror/SubViewport" unique_id=1790595056]
+transform = Transform3D(0.7071068, 2.9802322e-08, -0.7071069, 4.371139e-08, 1.0000001, 0, 0.7071068, 2.9802322e-08, 0.7071069, -4.4568152, 3.4491222, 4.428523)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Beginning" unique_id=926325093]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.955462, 1.998971, 0)
@@ -76,3 +120,74 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.955462, 1.998971, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Beginning/StaticBody3D" unique_id=1183525357]
 transform = Transform3D(0.5489645, -0.8358457, 0, 0.8358457, 0.5489645, 0, 0, 0, 1, 0.04992199, -0.30251837, 0.0037231445)
 shape = SubResource("BoxShape3D_e84dk")
+
+[node name="TVandStand" parent="Beginning" unique_id=1602342262 instance=ExtResource("8_mp5xv")]
+transform = Transform3D(-0.9, 0, -1.3589622e-07, 0, 0.9, 0, 1.3589622e-07, 0, -0.9, 4.514111, 3.0543594, -3.7998466)
+
+[node name="Details" type="Node3D" parent="Beginning" unique_id=185909325]
+
+[node name="Tall_Grass" parent="Beginning/Details" unique_id=35527728 instance=ExtResource("10_1cpm7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.824181, 1.5340273, 13.030735)
+
+[node name="Tall_Grass2" parent="Beginning/Details" unique_id=1283195438 instance=ExtResource("10_1cpm7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8420007, 1.5340285, 10.213456)
+
+[node name="Tall_Grass3" parent="Beginning/Details" unique_id=43556190 instance=ExtResource("10_1cpm7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.501259, 1.5340278, 8.606607)
+
+[node name="Tall_Grass4" parent="Beginning/Details" unique_id=1197677972 instance=ExtResource("10_1cpm7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.312548, 1.5340285, 12.10447)
+
+[node name="Tall_Grass5" parent="Beginning/Details" unique_id=414990847 instance=ExtResource("10_1cpm7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.036486, 1.5340278, 6.353162)
+
+[node name="Tall_Grass6" parent="Beginning/Details" unique_id=336142155 instance=ExtResource("10_1cpm7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.960267, 1.5340276, 13.05582)
+
+[node name="Tall_Grass7" parent="Beginning/Details" unique_id=717766478 instance=ExtResource("10_1cpm7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.768823, 1.5340269, 1.2045212)
+
+[node name="Tall_Grass8" parent="Beginning/Details" unique_id=1999675757 instance=ExtResource("10_1cpm7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.794324, 1.5340276, -11.014967)
+
+[node name="Tall_Grass9" parent="Beginning/Details" unique_id=18560583 instance=ExtResource("10_1cpm7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.764381, 1.5340295, -4.22134)
+
+[node name="Tall_Grass10" parent="Beginning/Details" unique_id=1931326040 instance=ExtResource("10_1cpm7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.8027887, 1.5340297, -9.488014)
+
+[node name="Tall_Grass11" parent="Beginning/Details" unique_id=679636817 instance=ExtResource("10_1cpm7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.851858, 1.5340276, -11.995121)
+
+[node name="Tall_Grass12" parent="Beginning/Details" unique_id=43989153 instance=ExtResource("10_1cpm7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1680527, 1.5340278, -8.511362)
+
+[node name="Tall_Grass13" parent="Beginning/Details" unique_id=74020184 instance=ExtResource("10_1cpm7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8933706, 1.5340297, -13.558935)
+
+[node name="Tall_Grass14" parent="Beginning/Details" unique_id=1670759365 instance=ExtResource("10_1cpm7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.098439, 1.5340285, -10.9962)
+
+[node name="Tall_Grass15" parent="Beginning/Details" unique_id=238268941 instance=ExtResource("10_1cpm7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.332175, 1.5340297, -6.3922424)
+
+[node name="Tall_Grass16" parent="Beginning/Details" unique_id=337524673 instance=ExtResource("10_1cpm7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.652994, 1.5340278, -10.636068)
+
+[node name="Tall_Grass17" parent="Beginning/Details" unique_id=1519932054 instance=ExtResource("10_1cpm7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.779169, 1.5340271, 3.338613)
+
+[node name="Chair01" parent="Beginning" unique_id=243274306 instance=ExtResource("11_gtbq3")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.12577426, 2.890442, -3.9023654)
+
+[node name="Money" parent="Beginning" unique_id=1348732268 instance=ExtResource("12_whmur")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5669737, 3.4689255, -0.024711013)
+
+[node name="Money2" parent="Beginning" unique_id=485728704 instance=ExtResource("13_pbw2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.4954543, 2.5, -0.3540541)
+
+[node name="Money3" parent="Beginning" unique_id=2092873549 instance=ExtResource("12_whmur")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5012054, 2.5, -0.9706737)
+
+[node name="Money4" parent="Beginning" unique_id=234183329 instance=ExtResource("12_whmur")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5796695, 2.5000002, 0.23096085)

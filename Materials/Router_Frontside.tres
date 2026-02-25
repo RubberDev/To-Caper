@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://3ga3eo4x27d4"]
+
+[ext_resource type="Texture2D" uid="uid://crvn7kyydwmd6" path="res://Textures/routerfront.png" id="1_48pb1"]
+
+[resource]
+albedo_texture = ExtResource("1_48pb1")
+uv1_scale = Vector3(1, 0.51, 0.245)
+uv1_offset = Vector3(0, 0.42, 0.245)
+uv1_triplanar = true

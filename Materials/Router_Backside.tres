@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cy1nada6ako02"]
+
+[ext_resource type="Texture2D" uid="uid://d1q0d7c5rq54" path="res://Textures/routerback.png" id="1_7y21l"]
+
+[resource]
+albedo_texture = ExtResource("1_7y21l")
+uv1_scale = Vector3(1, 0.51, 0.485)
+uv1_offset = Vector3(0, 0.46, -0.5)
+uv1_triplanar = true

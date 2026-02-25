@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://0wxd6alvaa1p"]
+
+[ext_resource type="Script" uid="uid://c8ldw82wpc14u" path="res://Objects/Prototype/interact_test.gd" id="1_utnyf"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_utnyf"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_0rnrb"]
+
+[node name="InteractTest" type="StaticBody3D" unique_id=1707528444]
+script = ExtResource("1_utnyf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=722608904]
+shape = SubResource("BoxShape3D_utnyf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D" unique_id=725515984]
+mesh = SubResource("BoxMesh_0rnrb")

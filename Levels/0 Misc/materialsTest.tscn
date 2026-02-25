@@ -1,14 +1,16 @@
 [gd_scene format=3 uid="uid://y4u143gl7e2x"]
 
-[ext_resource type="Material" uid="uid://cajb8amju6cks" path="res://Materials/Brown_Tiling.tres" id="1_e4s67"]
+[ext_resource type="Material" uid="uid://c7vjm2hiwdwh8" path="res://Materials/TVscreen1.tres" id="1_svmqs"]
+[ext_resource type="Material" uid="uid://3ga3eo4x27d4" path="res://Materials/Router_Frontside.tres" id="2_svmqs"]
 
 [node name="CSGSphere3D" type="Node3D" unique_id=1667909401]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1317289903]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 4, 0, 0)
-material = ExtResource("1_e4s67")
+material = ExtResource("1_svmqs")
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="." unique_id=1016752836]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
 radial_segments = 50
 rings = 68
+material = ExtResource("2_svmqs")
