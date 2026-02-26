@@ -3,6 +3,8 @@
 [ext_resource type="ArrayMesh" uid="uid://d1xibjqo66x6w" path="res://Objects/Models/StreetPiece2.obj" id="1_nk2b7"]
 [ext_resource type="Material" uid="uid://bi55it8tqbji8" path="res://Materials/asphalt_road_01.tres" id="2_1aot5"]
 [ext_resource type="Material" uid="uid://rki8oc7x474d" path="res://Materials/concrete_01.tres" id="3_wwgxa"]
+[ext_resource type="PackedScene" uid="uid://couileiem5dlw" path="res://Objects/light_post.tscn" id="4_1vlop"]
+[ext_resource type="PackedScene" uid="uid://ck6w5hh8rji6t" path="res://Objects/bus_stop.tscn" id="5_j0gsx"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1aot5"]
 
@@ -28,3 +30,21 @@ shape = SubResource("BoxShape3D_wwgxa")
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="." unique_id=1429428897]
 transform = Transform3D(2.9673119, 0, 0, 0, 0.3563886, 0, 0, 0, 28.614866, -9, 0.04476148, 0)
 shape = SubResource("BoxShape3D_wwgxa")
+
+[node name="LightPost2" parent="." unique_id=505905079 instance=ExtResource("4_1vlop")]
+transform = Transform3D(-1, 0, 1.01496695e-07, 0, 1.4000001, 0, -8.7422784e-08, 0, -1.160987, 9.976, 0.186, 1.336)
+
+[node name="LightPost3" parent="." unique_id=246913933 instance=ExtResource("4_1vlop")]
+transform = Transform3D(1, 0, 0, 0, 1.4, 0, 0, 0, 1.1609869, -9.976148, 0.18552303, -7.2081404)
+
+[node name="LightPost4" parent="." unique_id=181214450 instance=ExtResource("4_1vlop")]
+transform = Transform3D(-1, 0, 1.01496695e-07, 0, 1.4000001, 0, -8.7422784e-08, 0, -1.160987, 9.976, 0.186, -7.2082257)
+
+[node name="LightPost5" parent="." unique_id=607528114 instance=ExtResource("4_1vlop")]
+transform = Transform3D(1, 0, 0, 0, 1.4, 0, 0, 0, 1.1609869, -9.976148, 0.18552303, 9.945001)
+
+[node name="LightPost6" parent="." unique_id=863122205 instance=ExtResource("4_1vlop")]
+transform = Transform3D(-1, 0, 1.01496695e-07, 0, 1.4000001, 0, -8.7422784e-08, 0, -1.160987, 9.976, 0.186, 9.944916)
+
+[node name="BusStop" parent="." unique_id=1667333151 instance=ExtResource("5_j0gsx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.363387, 0.27042803, 1.3446175)

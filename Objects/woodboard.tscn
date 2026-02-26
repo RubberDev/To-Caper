@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://c3y1likuy1otx"]
+
+[ext_resource type="Material" uid="uid://dli4qdq71p0gf" path="res://Materials/plywood.tres" id="1_rwcqv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_swgd6"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_4isec"]
+
+[node name="Woodboard" type="StaticBody3D" unique_id=284331359]
+transform = Transform3D(0.62224585, 0, 0, 0, 0.15212148, 0, 0, 0, 6.2259107, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2021356932]
+shape = SubResource("BoxShape3D_swgd6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D" unique_id=2115701776]
+mesh = SubResource("BoxMesh_4isec")
+surface_material_override/0 = ExtResource("1_rwcqv")

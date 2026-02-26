@@ -115,6 +115,14 @@ func _physics_process(delta: float) -> void:
 
 func _process(_delta: float) -> void:
 	$Control/Panel/Label.text = "$" + str(money)
+	
+	if $PlyrCamera3D/IntCheck.is_colliding():
+		var Collider = $PlyrCamera3D/IntCheck.get_collider()
+		if Input.is_action_just_pressed("Interact"):
+			print("Pressed interact")
+			if Collider.has_method("interact") or Collider.is_in_group("Interactable"):
+				print("Firing method")
+				Collider.interact()
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
@@ -143,10 +151,3 @@ func _input(event: InputEvent) -> void:
 		if is_crouched == false:
 			sprinting = false
 			SPEED = DEFAULT_SPEED
-	
-	# Doesn't work for whatever reason, smth to do with has_method
-	if Input.is_action_just_pressed("Interact"):
-		if $PlyrCamera3D/IntCheck.is_colliding():
-			var Collider = $PlyrCamera3D/IntCheck.get_collider()
-			if Collider.has_method("Interact"):
-				Collider.Interact()

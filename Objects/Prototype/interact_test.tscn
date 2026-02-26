@@ -6,7 +6,7 @@
 
 [sub_resource type="BoxMesh" id="BoxMesh_0rnrb"]
 
-[node name="InteractTest" type="StaticBody3D" unique_id=1707528444]
+[node name="InteractTest" type="StaticBody3D" unique_id=1707528444 groups=["Interactable"]]
 script = ExtResource("1_utnyf")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=722608904]

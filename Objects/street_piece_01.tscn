@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://b045y1rwytbd6"]
+[gd_scene format=3 uid="uid://b045y1rwytbd6"]
 
 [ext_resource type="ArrayMesh" uid="uid://cjkrhufs1oq5h" path="res://Objects/Models/StreetPiece.obj" id="1_5abwt"]
 [ext_resource type="Material" uid="uid://bi55it8tqbji8" path="res://Materials/asphalt_road_01.tres" id="2_2m1ad"]
 [ext_resource type="Material" uid="uid://rki8oc7x474d" path="res://Materials/concrete_01.tres" id="2_uwdb7"]
+[ext_resource type="PackedScene" uid="uid://couileiem5dlw" path="res://Objects/light_post.tscn" id="4_bbgjt"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5abwt"]
 size = Vector3(1.0336914, 0.7347412, 1)
@@ -10,22 +11,28 @@ size = Vector3(1.0336914, 0.7347412, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_uwdb7"]
 size = Vector3(1, 0.3482666, 1)
 
-[node name="StreetPiece_01" type="StaticBody3D"]
+[node name="StreetPiece_01" type="StaticBody3D" unique_id=218655034]
 
-[node name="StreetPiece" type="MeshInstance3D" parent="."]
+[node name="StreetPiece" type="MeshInstance3D" parent="." unique_id=961619172]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 mesh = ExtResource("1_5abwt")
 surface_material_override/0 = ExtResource("2_2m1ad")
 surface_material_override/1 = ExtResource("2_uwdb7")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1188467290]
 transform = Transform3D(14.885247, 0, 0, 0, 0.3, 0, 0, 0, 12.532239, -0.10538864, 0.020269778, 0)
 shape = SubResource("BoxShape3D_5abwt")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=1717196987]
 transform = Transform3D(3.0131567, 0, 0, 0, 1, 0, 0, 0, 11.756241, -9, 0.04425049, 0)
 shape = SubResource("BoxShape3D_uwdb7")
 
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="." unique_id=637374732]
 transform = Transform3D(3.0131567, 0, 0, 0, 1, 0, 0, 0, 11.756241, 9, 0.04425049, 0)
 shape = SubResource("BoxShape3D_uwdb7")
+
+[node name="LightPost" parent="." unique_id=456246504 instance=ExtResource("4_bbgjt")]
+transform = Transform3D(1, 0, 0, 0, 1.4, 0, 0, 0, 1.1609869, -9.95283, 0.20998454, 0.09238529)
+
+[node name="LightPost2" parent="." unique_id=1023726483 instance=ExtResource("4_bbgjt")]
+transform = Transform3D(-1, 0, -1.01496695e-07, 0, 1.4000001, 0, 8.7422784e-08, 0, -1.160987, 9.953, 0.21, 0.092)
