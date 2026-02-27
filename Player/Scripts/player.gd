@@ -1,6 +1,7 @@
 class_name Player
 extends CharacterBody3D
 
+@export var Process : bool = true
 
 const DEFAULT_SPEED = 2.5
 var SPEED = 2.5
@@ -71,6 +72,11 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	handle_anims(delta)
 	update_tree()
+	
+	if Process == true:
+		set_deferred("process_mode", PROCESS_MODE_INHERIT)
+	else:
+		set_deferred("process_mode", PROCESS_MODE_DISABLED)
 	
 	if $PlyrCamera3D/IntCheck.is_colliding():
 		var Collider = $PlyrCamera3D/IntCheck.get_collider()
