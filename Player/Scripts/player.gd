@@ -127,6 +127,7 @@ func _physics_process(delta: float) -> void:
 
 func _process(_delta: float) -> void:
 	$Control/Panel/Label.text = "$" + str(money)
+	$Control/FPS.text = "FPS - " + str(Engine.get_frames_per_second())
 	
 	if $PlyrCamera3D/IntCheck.is_colliding():
 		var Collider = $PlyrCamera3D/IntCheck.get_collider()

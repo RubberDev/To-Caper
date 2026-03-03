@@ -996,10 +996,19 @@ text = "Press 'E' to interact"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="FPS" type="Label" parent="Control" unique_id=1255993088]
+layout_mode = 0
+offset_right = 217.0
+offset_bottom = 56.0
+text = "FPS - "
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="PlyrCamera3D" type="Camera3D" parent="." unique_id=2080509272]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5356543, -0.062907934)
 cull_mask = 1048573
 current = true
+far = 2000.0
 
 [node name="IntCheck" type="RayCast3D" parent="PlyrCamera3D" unique_id=1204356185]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.66992354)

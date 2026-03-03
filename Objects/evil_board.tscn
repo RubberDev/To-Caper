@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://dashixghbg243"]
+
+[ext_resource type="PackedScene" uid="uid://c3y1likuy1otx" path="res://Objects/woodboard.tscn" id="1_4hlvv"]
+[ext_resource type="Script" uid="uid://x4cd1x2rqwl" path="res://Objects/Scripts/evil_board.gd" id="1_xb72g"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4hlvv"]
+size = Vector3(1, 0.18170166, 1)
+
+[node name="Evil_Board" type="StaticBody3D" unique_id=1169460381]
+script = ExtResource("1_xb72g")
+
+[node name="Woodboard" parent="." unique_id=284331359 instance=ExtResource("1_4hlvv")]
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1670398920]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=929550082]
+transform = Transform3D(0.60127854, 0, 0, 0, 1, 0, 0, 0, 6.2174745, 0, 0.15914917, 0)
+shape = SubResource("BoxShape3D_4hlvv")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
