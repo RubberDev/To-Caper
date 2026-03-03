@@ -3,6 +3,8 @@ extends StaticBody3D
 @onready var bridge = $Woodboard
 @onready var board = $Woodboard2
 
+@export var IntText : String = "Press 'E' to interact"
+
 func _ready() -> void:
 	bridge.hide()
 	bridge.set_deferred("process_mode", PROCESS_MODE_DISABLED)

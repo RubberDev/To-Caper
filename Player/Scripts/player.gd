@@ -81,9 +81,15 @@ func _physics_process(delta: float) -> void:
 	if $PlyrCamera3D/IntCheck.is_colliding():
 		var Collider = $PlyrCamera3D/IntCheck.get_collider()
 		if Collider.has_method("interact"):
+			$Control/IntLab.show()
+			$Control/IntLab.text = Collider.IntText
 			if Input.is_action_just_pressed("Interact"):
 				print("test")
 				Collider.interact()
+		else:
+			$Control/IntLab.hide()
+	else:
+		$Control/IntLab.hide()
 	
 	# Add the gravity.
 	if not is_on_floor():
