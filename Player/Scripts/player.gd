@@ -84,7 +84,6 @@ func _physics_process(delta: float) -> void:
 			$Control/IntLab.show()
 			$Control/IntLab.text = Collider.IntText
 			if Input.is_action_just_pressed("Interact"):
-				print("test")
 				Collider.interact()
 		else:
 			$Control/IntLab.hide()

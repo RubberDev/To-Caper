@@ -10,6 +10,7 @@ func _ready() -> void:
 	bridge.set_deferred("process_mode", PROCESS_MODE_DISABLED)
 
 func interact():
+	$Place.play()
 	board.hide()
 	board.set_deferred("process_mode", PROCESS_MODE_DISABLED)
 	bridge.show()

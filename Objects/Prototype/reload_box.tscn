@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://b4tgol4yshebx"]
+
+[ext_resource type="Script" uid="uid://dfylfhr11ylkx" path="res://Objects/Prototype/reload_box.gd" id="1_33k0f"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1ygiw"]
+
+[node name="Reload_Box" type="Area3D" unique_id=1315076388]
+script = ExtResource("1_33k0f")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1963251523]
+shape = SubResource("BoxShape3D_1ygiw")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
