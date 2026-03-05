@@ -1,0 +1,53 @@
+Created by -
+MyNamesRubber
+Other Person
+
+Programming -
+MyNamesRubber
+
+3D Models -
+MyNamesRubber
+
+Animation -
+MyNamesRubber
+
+Sound Effects -
+Freesound.org
+
+Texturing -
+MyNamesRubber
+Other Person
+kenney.nl
+PolyHaven
+Krita
+
+Sprites -
+MyNamesRubber
+Other Person
+
+UI Design -
+MyNamesRubber
+
+Writing - 
+MyNamesRubber
+Other Person
+
+Music -
+Add later
+
+Software -
+Godot 4.5
+Godot 4.6
+Blender 5.0
+Krita
+Audacity
+Github Desktop
+
+Websites -
+Freesound.org
+PolyHaven
+kenney.nl
+remove.bg
+
+Gameplay Testers -
+Add later
