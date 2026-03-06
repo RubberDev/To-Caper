@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dqbfna8sahwt2"]
+
+[ext_resource type="PackedScene" uid="uid://b2u73lik4dojp" path="res://Objects/board.tscn" id="1_yu8je"]
+[ext_resource type="PackedScene" uid="uid://bu36u5sl76njd" path="res://Particles/fire.tscn" id="2_okxgk"]
+
+[node name="Campfire" type="Node3D" unique_id=956886595]
+
+[node name="Board" parent="." unique_id=323055916 instance=ExtResource("1_yu8je")]
+transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
+
+[node name="Board2" parent="." unique_id=1959270911 instance=ExtResource("1_yu8je")]
+transform = Transform3D(0.7071067, 0, -0.7071068, 0, 1, 0, 0.7071068, 0, 0.7071067, 0, 0.104409516, 0)
+
+[node name="Board3" parent="." unique_id=164080468 instance=ExtResource("1_yu8je")]
+transform = Transform3D(0.9990066, 0, 0.04456088, 0, 1, 0, -0.04456088, 0, 0.9990066, 0, 0.21527237, 0)
+
+[node name="Fire" parent="." unique_id=320862317 instance=ExtResource("2_okxgk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35804248, 0)

@@ -22,10 +22,13 @@
 [ext_resource type="PackedScene" uid="uid://b045y1rwytbd6" path="res://Objects/street_piece_01.tscn" id="18_5k4mi"]
 [ext_resource type="PackedScene" uid="uid://bv5aqeqv5la8e" path="res://Objects/street_piece_2.tscn" id="19_kedka"]
 [ext_resource type="PackedScene" uid="uid://b1cylvqn2etwo" path="res://Characters/Marlon.tscn" id="20_08nq6"]
+[ext_resource type="ArrayOccluder3D" uid="uid://djuqknwp2s3bl" path="res://Levels/GameLevel/Occluders/game_level2.occ" id="20_kpxfj"]
 [ext_resource type="Script" uid="uid://bcffhw2t6yn3v" path="res://Levels/GameLevel/Scripts/marlon.gd" id="20_lr7e5"]
+[ext_resource type="ArrayOccluder3D" uid="uid://dwss3j2n4skbw" path="res://Levels/GameLevel/Occluders/game_level.occ" id="21_2lhnd"]
 [ext_resource type="PackedScene" uid="uid://dqjdnafyg0qj5" path="res://Objects/food_truck.tscn" id="21_sdc30"]
 [ext_resource type="PackedScene" uid="uid://c3ydxgsia0viy" path="res://Objects/table_01.tscn" id="22_8caoe"]
 [ext_resource type="Script" uid="uid://garqnprqoipl" path="res://Levels/GameLevel/Scripts/foodtruck.gd" id="22_b2vn3"]
+[ext_resource type="ArrayOccluder3D" uid="uid://bdy1ciwg6qcml" path="res://Levels/GameLevel/Occluders/game_level3.occ" id="23_04qmq"]
 [ext_resource type="PackedScene" uid="uid://tdlf47wmgnu2" path="res://Objects/chair_02.tscn" id="23_d55es"]
 [ext_resource type="PackedScene" uid="uid://b4diasxp813si" path="res://Characters/Chazz.tscn" id="24_11v05"]
 [ext_resource type="Material" uid="uid://rki8oc7x474d" path="res://Materials/concrete_01.tres" id="25_xpj2v"]
@@ -38,6 +41,8 @@
 [ext_resource type="Script" uid="uid://3nkl5lr803gi" path="res://Levels/GameLevel/Scripts/lever_puzzle.gd" id="36_8mddc"]
 [ext_resource type="Material" uid="uid://cxvgjdapex3tk" path="res://Materials/Metal_02.tres" id="36_322ci"]
 [ext_resource type="Material" uid="uid://c6e0hm0r68w6o" path="res://Materials/Metal_01.tres" id="36_gtx1n"]
+[ext_resource type="PackedScene" uid="uid://bktepimvpvmm6" path="res://Characters/character_base.tscn" id="39_yjt3n"]
+[ext_resource type="PackedScene" uid="uid://dqbfna8sahwt2" path="res://Objects/campfire.tscn" id="40_a266h"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_yvdnq"]
 panorama = ExtResource("1_u2db0")
@@ -72,9 +77,6 @@ size = Vector3(0.44921875, 1.6132813, 2.3687744)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ccm1t"]
 size = Vector3(1, 2.574585, 0.44482422)
-
-[sub_resource type="BoxOccluder3D" id="BoxOccluder3D_xw0dn"]
-size = Vector3(0.4337724, 7.626366, 4.645962)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5k4mi"]
 size = Vector3(0.53582764, 1.3636131, 0.35302734)
@@ -241,6 +243,11 @@ uv1_triplanar = true
 [sub_resource type="BoxShape3D" id="BoxShape3D_11v05"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_xpj2v"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8mddc"]
+albedo_texture = ExtResource("4_cb68q")
+uv1_scale = Vector3(1, -0.055, 1)
+uv1_triplanar = true
 
 [node name="game_level" type="Node3D" unique_id=1264758789]
 script = ExtResource("1_346x0")
@@ -475,23 +482,27 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.406305, 1.8997127, 20.3585
 
 [node name="OccluderInstance3D" type="OccluderInstance3D" parent="Beginning" unique_id=1282472479]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.527552, 5.204923, 3.3775716)
-occluder = SubResource("BoxOccluder3D_xw0dn")
+occluder = ExtResource("20_kpxfj")
 
 [node name="OccluderInstance3D2" type="OccluderInstance3D" parent="Beginning" unique_id=1085894283]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.527552, 5.204923, -3.161847)
-occluder = SubResource("BoxOccluder3D_xw0dn")
+occluder = ExtResource("21_2lhnd")
 
 [node name="Money9" parent="Beginning" unique_id=1554944644 instance=ExtResource("34_f5lkr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.35882, -14.88176, 8.802517)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.078503, -14.88176, 8.802517)
 
 [node name="Money10" parent="Beginning" unique_id=313083281 instance=ExtResource("12_whmur")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.067255, -14.88176, 7.134589)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.786938, -14.88176, 7.134589)
 
 [node name="Money11" parent="Beginning" unique_id=1570380774 instance=ExtResource("12_whmur")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.888506, -14.88176, 8.589434)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.608189, -14.88176, 8.589434)
 
 [node name="Money12" parent="Beginning" unique_id=1119748511 instance=ExtResource("12_whmur")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.87291, -14.88176, 10.279218)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.592592, -14.88176, 10.279218)
+
+[node name="OccluderInstance3D3" type="OccluderInstance3D" parent="Beginning" unique_id=1906002746]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.528315, -50.999813, 0)
+occluder = ExtResource("23_04qmq")
 
 [node name="Part1" type="Node3D" parent="." unique_id=1607528292]
 
@@ -1130,6 +1141,81 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 239.85368, 2.0132322, 38.3671
 
 [node name="Money5" parent="Part2" unique_id=460044724 instance=ExtResource("12_whmur")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 228.82375, 2.0132322, 39.051495)
+
+[node name="BasePlate2" type="CSGBox3D" parent="." unique_id=853403876]
+transform = Transform3D(30, 0, 0, 0, 1, 0, 0, 0, 30, 331.44864, -1295.9454, 41.421417)
+use_collision = true
+size = Vector3(1, 2642.2607, 1)
+material = SubResource("StandardMaterial3D_8mddc")
+
+[node name="RockPlatform" parent="." unique_id=1782883629 instance=ExtResource("14_aiiw7")]
+transform = Transform3D(0.9354564, 0, 0.8746303, -0.03571142, 1.5069834, 0.23389363, -0.3516334, -0.15304723, 2.3030398, 315.82648, -1.9016113, 44.98082)
+
+[node name="CharacterBase" parent="." unique_id=1318948685 instance=ExtResource("39_yjt3n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 311.42905, 0.099452615, 42.723076)
+
+[node name="RockPlatform2" parent="." unique_id=1378043976 instance=ExtResource("14_aiiw7")]
+transform = Transform3D(1, 0, 0, 0, 1.3282827, -0.6783477, 0, 0.45334876, 1.9875152, 315.4181, -0.20507813, 39.657722)
+
+[node name="RockPlatform3" parent="." unique_id=788868833 instance=ExtResource("14_aiiw7")]
+transform = Transform3D(1, 0, 0, 0, 1.4011401, -0.12217027, 0, 0.08164799, 2.096532, 315.4181, 1.3119006, 34.801037)
+
+[node name="RockPlatform7" parent="." unique_id=237043277 instance=ExtResource("14_aiiw7")]
+transform = Transform3D(1, 0, 0, 0, 0.6815499, -0.12217027, 0, 0.039715644, 2.096532, 315.4181, 6.3562617, 42.557014)
+
+[node name="RockPlatform4" parent="." unique_id=1610385024 instance=ExtResource("14_aiiw7")]
+transform = Transform3D(1, 0, 0, 0, 0.44658822, -0.12217027, 0, 0.02602383, 2.096532, 316.6573, 3.0665417, 40.185806)
+
+[node name="RockPlatform5" parent="." unique_id=2095142805 instance=ExtResource("14_aiiw7")]
+transform = Transform3D(1, 0, 0, 0, 0.42842177, 0.6043602, 0, -0.12873647, 2.0112486, 316.6573, 3.6811295, 44.815285)
+
+[node name="RockPlatform6" parent="." unique_id=519114687 instance=ExtResource("14_aiiw7")]
+transform = Transform3D(1, 0, 0, 0, 0.35894608, 1.2533313, 0, -0.26697564, 1.6850915, 316.6573, 5.7648478, 48.991737)
+
+[node name="RockPlatform8" parent="." unique_id=1764203798 instance=ExtResource("14_aiiw7")]
+transform = Transform3D(0.9585268, -0.28500253, 0, 0.28500253, 0.9585268, 0, 0, 0, 1, 315.77847, 6.9766126, 37.650665)
+
+[node name="RockPlatform9" parent="." unique_id=1746381555 instance=ExtResource("14_aiiw7")]
+transform = Transform3D(0.9585268, -0.28500253, 0, 0.28500253, 0.9585268, 0, 0, 0, 1, 315.77847, 8.225392, 34.161713)
+
+[node name="RockPlatform10" parent="." unique_id=143091765 instance=ExtResource("14_aiiw7")]
+transform = Transform3D(0.9585268, -0.28500253, 0, 0.28500253, 0.9585268, 0, 0, 0, 1, 315.77847, 9.416774, 30.890614)
+
+[node name="RockPlatform11" parent="." unique_id=2076060575 instance=ExtResource("14_aiiw7")]
+transform = Transform3D(1, 0, 0, 0, 0.33957, 1.7749069, 0, -0.10261276, 5.8735886, 316.49506, 12.539019, 39.428738)
+
+[node name="RockPlatform19" parent="." unique_id=968580690 instance=ExtResource("14_aiiw7")]
+transform = Transform3D(1, 0, 0, 0, 0.33957, 1.7749069, 0, -0.10261276, 5.8735886, 316.49506, 22.431759, 41.432465)
+
+[node name="RockPlatform12" parent="." unique_id=2022506871 instance=ExtResource("14_aiiw7")]
+transform = Transform3D(0.96061444, -0.27788472, 0, 0.27788472, 0.96061444, 0, 0, 0, 1, 316.05475, 14.546093, 47.62534)
+
+[node name="RockPlatform13" parent="." unique_id=1776640830 instance=ExtResource("14_aiiw7")]
+transform = Transform3D(0.96061444, -0.27788472, 0, 0.27788472, 0.96061444, 0, 0, 0, 1, 316.05475, 11.238694, 53.18414)
+
+[node name="RockPlatform15" parent="." unique_id=709758781 instance=ExtResource("14_aiiw7")]
+transform = Transform3D(0.96061444, -0.27788472, 0, 0.27788472, 0.96061444, 0, 0, 0, 1, 316.93503, 16.129194, 45.22873)
+
+[node name="RockPlatform16" parent="." unique_id=1881726465 instance=ExtResource("14_aiiw7")]
+transform = Transform3D(0.96061444, -0.27788472, 0, 0.27788472, 0.96061444, 0, 0, 0, 1, 316.93503, 17.029245, 41.887356)
+
+[node name="RockPlatform17" parent="." unique_id=327869007 instance=ExtResource("14_aiiw7")]
+transform = Transform3D(2.5851676, -0.20400462, 0, 0.7478324, 0.7052197, 0, 0, 0, 1, 316.13266, 17.608435, 38.365955)
+
+[node name="RockPlatform14" parent="." unique_id=1140128804 instance=ExtResource("14_aiiw7")]
+transform = Transform3D(2.6996133, -0.27788472, 0, 0.780939, 0.96061444, 0, 0, 0, 1, 315.09772, 14.870783, 51.043922)
+
+[node name="RockPlatform18" parent="." unique_id=1828326378 instance=ExtResource("14_aiiw7")]
+transform = Transform3D(2.6996133, -0.27788472, 0, 0.780939, 0.96061444, 0, 0, 0, 1, 315.09772, 18.14012, 32.55559)
+
+[node name="Fireplatform" type="CSGBox3D" parent="." unique_id=1803443944]
+transform = Transform3D(1.1969604, 0, 0, 0, 0.2447986, 0, 0, 0, 24.904842, 373.86786, 24.509659, 42)
+use_collision = true
+size = Vector3(44.87256, 4.422455, 1)
+material = ExtResource("25_xpj2v")
+
+[node name="Campfire" parent="." unique_id=956886595 instance=ExtResource("40_a266h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.780038, -15.823114, 9.043909)
 
 [connection signal="body_entered" from="Reload_Box" to="Reload_Box" method="_on_body_entered"]
 [connection signal="timeout" from="Part1/Busstop/Marlon/Timer" to="Part1/Busstop/Marlon" method="_on_timer_timeout"]
