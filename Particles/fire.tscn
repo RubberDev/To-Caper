@@ -18,6 +18,8 @@ gradient = SubResource("Gradient_53ncx")
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_71owm"]
 particle_flag_align_y = true
 gravity = Vector3(0, 1, 0)
+radial_accel_min = -2.2351742e-06
+radial_accel_max = 0.29999775
 color_ramp = SubResource("GradientTexture1D_nihx2")
 alpha_curve = SubResource("CurveTexture_smm1n")
 
