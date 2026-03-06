@@ -1,6 +1,6 @@
 Created by -
 MyNamesRubber
-Other Person
+StaticBrain
 
 Programming -
 MyNamesRubber
@@ -16,21 +16,21 @@ Freesound.org
 
 Texturing -
 MyNamesRubber
-Other Person
+StaticBrain
 kenney.nl
 PolyHaven
 Krita
 
 Sprites -
 MyNamesRubber
-Other Person
+StaticBrain
 
 UI Design -
 MyNamesRubber
 
 Writing - 
 MyNamesRubber
-Other Person
+StaticBrain
 
 Music -
 Add later
@@ -50,4 +50,11 @@ kenney.nl
 remove.bg
 
 Gameplay Testers -
-Add later
+MyNamesRubber
+StaticBrain
+BlooSilly
+GameTester1
+GameTester2
+GameTester3
+Director of Marketing Directions
+Support Staff 1
