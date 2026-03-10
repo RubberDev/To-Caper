@@ -330,6 +330,9 @@ uv1_scale = Vector3(0.1, 0.1, 0.1)
 uv1_triplanar = true
 uv1_world_triplanar = true
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_crscw"]
+size = Vector3(4.4128723, 6.164795, 1)
+
 [node name="game_level" type="Node3D" unique_id=1264758789]
 script = ExtResource("1_346x0")
 
@@ -1431,6 +1434,13 @@ material = SubResource("StandardMaterial3D_d1u84")
 
 [node name="AwesomeStore" parent="End" unique_id=1872873046 instance=ExtResource("46_k54xu")]
 transform = Transform3D(-2.1855694e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.1855694e-08, 122.02643, 25.153534, -3.3271468)
+
+[node name="EndTrig" type="Area3D" parent="End/AwesomeStore" unique_id=106109200]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.9648438, -7.9194336)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="End/AwesomeStore/EndTrig" unique_id=1068909138]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.03227234, 0.18640137, 0)
+shape = SubResource("BoxShape3D_crscw")
 
 [connection signal="body_entered" from="Reload_Box" to="Reload_Box" method="_on_body_entered"]
 [connection signal="timeout" from="Part1/Busstop/Marlon/Timer" to="Part1/Busstop/Marlon" method="_on_timer_timeout"]
