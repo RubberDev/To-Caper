@@ -95,9 +95,15 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 
 	# Handle jump.
+	
 	if Input.is_action_just_pressed("Jump") and is_on_floor():
+		var rand_int = randi_range(1,20)
 		velocity.y = JUMP_VELOCITY
-		$Sound/PlayerJump.play()
+		if rand_int < 15:
+			$Sound/PlayerJump2.play()
+		elif rand_int > 15:
+			$Sound/PlayerJump2.play()
+			$Sound/PlayerJump.play()
 		
 
 	var input_dir := Input.get_vector("Left", "Right", "Forward", "Back")

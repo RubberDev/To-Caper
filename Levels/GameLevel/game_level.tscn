@@ -196,7 +196,7 @@ _data = {
 
 [sub_resource type="Animation" id="Animation_ekfog"]
 resource_name = "Platform"
-length = 3.0
+length = 6.0
 loop_mode = 2
 tracks/0/type = "position_3d"
 tracks/0/imported = false
@@ -212,7 +212,7 @@ tracks/1/path = NodePath("Platform:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 3),
+"times": PackedFloat32Array(0, 6),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(79.91057, 0.74449503, -42.19408), Vector3(79.91056, 28.543251, -42.194077)]
@@ -295,10 +295,10 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 6, 12),
+"times": PackedFloat32Array(0, 6.0000005, 12),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector3(349.342, 26.531208, 57.713943), Vector3(376.34366, 26.531208, 57.713943), Vector3(349.342, 26.531208, 57.713943)]
+"values": [Vector3(-39.655457, 144.66089, 57.713943), Vector3(-17.653809, 144.66089, 57.713943), Vector3(-39.655457, 144.66089, 57.713943)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -1231,6 +1231,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 239.85368, 2.0132322, 38.3671
 [node name="Money5" parent="Part2" unique_id=460044724 instance=ExtResource("12_whmur")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 228.82375, 2.0132322, 39.051495)
 
+[node name="Money6" parent="Part2" unique_id=464491962 instance=ExtResource("13_pbw2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 267.9973, 1.3781289, 41.595924)
+
 [node name="Part3" type="Node3D" parent="." unique_id=83678716]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 391.4284, -118.33882, 0)
 
@@ -1396,20 +1399,38 @@ height = 127.79541
 sides = 22
 material = ExtResource("36_gtx1n")
 
-[node name="Ground" type="CSGBox3D" parent="." unique_id=149026592]
-transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 200, 630, -344.77634, 0)
+[node name="Money2" parent="Part3" unique_id=2078688575 instance=ExtResource("12_whmur")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76.11548, 118.90169, 44.72675)
+
+[node name="Money3" parent="Part3" unique_id=2035353625 instance=ExtResource("12_whmur")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76.364105, 122.04358, 34.51379)
+
+[node name="Money4" parent="Part3" unique_id=1529632780 instance=ExtResource("13_pbw2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75.26236, 123.42253, 44.63346)
+
+[node name="Money5" parent="Part3" unique_id=1121311624 instance=ExtResource("13_pbw2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75.44339, 132.14569, 39.114758)
+
+[node name="Player" parent="Part3" unique_id=617276853 instance=ExtResource("3_b6m8f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54.037476, 143.62679, 40.908005)
+
+[node name="End" type="Node3D" parent="." unique_id=1168425865]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 627.63794, -340.763, 0)
+
+[node name="Ground" type="CSGBox3D" parent="End" unique_id=149026592]
+transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 200, 2.3620605, -4.013336, 0)
 use_collision = true
 size = Vector3(3, 50.552673, 1)
 material = SubResource("StandardMaterial3D_oe8pn")
 
-[node name="Ground2" type="CSGBox3D" parent="." unique_id=1778171432]
-transform = Transform3D(76.935, 0, 0, 0, 1, 0, 0, 0, 177.72, 625.6144, -320.12088, 0)
+[node name="Ground2" type="CSGBox3D" parent="End" unique_id=1778171432]
+transform = Transform3D(76.935, 0, 0, 0, 1, 0, 0, 0, 177.72, -2.0235596, 20.64212, 0)
 use_collision = true
 size = Vector3(3, 1.7767792, 1)
 material = SubResource("StandardMaterial3D_d1u84")
 
-[node name="AwesomeStore" parent="." unique_id=1872873046 instance=ExtResource("46_k54xu")]
-transform = Transform3D(-2.1855694e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.1855694e-08, 749.66437, -315.60947, -3.3271468)
+[node name="AwesomeStore" parent="End" unique_id=1872873046 instance=ExtResource("46_k54xu")]
+transform = Transform3D(-2.1855694e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.1855694e-08, 122.02643, 25.153534, -3.3271468)
 
 [connection signal="body_entered" from="Reload_Box" to="Reload_Box" method="_on_body_entered"]
 [connection signal="timeout" from="Part1/Busstop/Marlon/Timer" to="Part1/Busstop/Marlon" method="_on_timer_timeout"]
