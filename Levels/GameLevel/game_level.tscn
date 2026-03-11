@@ -62,9 +62,6 @@ sky = SubResource("Sky_cb68q")
 glow_enabled = true
 glow_intensity = 0.6
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_1ygiw"]
-size = Vector3(609.682, 1, 419.81976)
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b6m8f"]
 albedo_texture = ExtResource("5_fa5cs")
 uv1_scale = Vector3(0.2, 0.2, 0.2)
@@ -334,6 +331,11 @@ uv1_world_triplanar = true
 [sub_resource type="BoxShape3D" id="BoxShape3D_crscw"]
 size = Vector3(4.4128723, 6.164795, 1)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_oe8pn"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1ygiw"]
+size = Vector3(609.682, 1, 419.81976)
+
 [node name="game_level" type="Node3D" unique_id=1264758789]
 script = ExtResource("1_346x0")
 
@@ -353,18 +355,6 @@ environment = SubResource("Environment_fa5cs")
 transform = Transform3D(0.7299356, 0.25396872, -0.6345816, 0, 0.928408, 0.37156236, 0.68351597, -0.2712166, 0.67767817, -11.357981, 5.4131355, 10.45929)
 light_color = Color(0.904459, 0.82025677, 7.70092e-07, 1)
 shadow_enabled = true
-
-[node name="Reload_Box" type="Area3D" parent="." unique_id=1315076388]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.816467, 4.7683716e-07, 16.15406)
-script = ExtResource("33_mxqbv")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Reload_Box" unique_id=1963251523]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6278076, -40.976723, -17.911682)
-shape = SubResource("BoxShape3D_1ygiw")
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Reload_Box" unique_id=941212380]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 477.81024, -362.46603, 37.845917)
-shape = SubResource("BoxShape3D_1ygiw")
 
 [node name="Beginning" type="Node3D" parent="." unique_id=827018081]
 
@@ -1440,11 +1430,49 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.9648438, -7.9194336)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.03227234, 0.18640137, 0)
 shape = SubResource("BoxShape3D_crscw")
 
-[connection signal="body_entered" from="Reload_Box" to="Reload_Box" method="_on_body_entered"]
+[node name="Checkpoints" type="Node3D" parent="." unique_id=1457550216]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 197.12376, 39.863693, 0)
+
+[node name="Checkpoint1" type="Node3D" parent="Checkpoints" unique_id=1315095203]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -183.83159, -37.14873, 0)
+
+[node name="Area3D" type="Area3D" parent="Checkpoints/Checkpoint1" unique_id=1989573078]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoints/Checkpoint1/Area3D" unique_id=854743259]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.245466, 0.47105217, 0)
+shape = SubResource("BoxShape3D_oe8pn")
+
+[node name="Checkpoint2" type="Node3D" parent="Checkpoints" unique_id=1523990472]
+transform = Transform3D(0.9981719, 0, -0.0604388, 0, 1, 0, 0.0604388, 0, 0.9981719, -4.1013184, -37.148735, 33.481915)
+
+[node name="Area3D" type="Area3D" parent="Checkpoints/Checkpoint2" unique_id=1817875642]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoints/Checkpoint2/Area3D" unique_id=1147679899]
+
+[node name="Checkpoint3" type="Node3D" parent="Checkpoints" unique_id=1691752242]
+transform = Transform3D(0.9981719, 0, -0.0604388, 0, 1, 0, 0.0604388, 0, 0.9981719, 127.96193, -10.607933, 42.54167)
+
+[node name="Area3D" type="Area3D" parent="Checkpoints/Checkpoint3" unique_id=2113972905]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoints/Checkpoint3/Area3D" unique_id=1033313227]
+
+[node name="Reload_Box" type="Area3D" parent="Checkpoints" unique_id=1315076388]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -140.3073, -39.863693, 16.15406)
+script = ExtResource("33_mxqbv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoints/Reload_Box" unique_id=1963251523]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6278076, -40.976723, -17.911682)
+shape = SubResource("BoxShape3D_1ygiw")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Checkpoints/Reload_Box" unique_id=941212380]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 477.81024, -362.46603, 37.845917)
+shape = SubResource("BoxShape3D_1ygiw")
+
 [connection signal="timeout" from="Part1/Busstop/Marlon/Timer" to="Part1/Busstop/Marlon" method="_on_timer_timeout"]
 [connection signal="timeout" from="Part1/Foodtruck/Timer" to="Part1/Foodtruck" method="_on_timer_timeout"]
 [connection signal="body_entered" from="Part3/Propane_Tank/Pipe/Area3D" to="Part3/Propane_Tank" method="_on_area_3d_body_entered"]
 [connection signal="body_entered" from="End/AwesomeStore/EndTrig" to="End/AwesomeStore" method="_on_end_trig_body_entered"]
+[connection signal="body_entered" from="Checkpoints/Reload_Box" to="Checkpoints/Reload_Box" method="_on_body_entered"]
 
 [editable path="Part1/StreetPiece_01"]
 [editable path="Part1/StreetPiece_01/LightPost"]

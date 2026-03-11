@@ -1,9 +1,12 @@
 extends Control
 
+var save_path = "user://ToCaperSettingsData"
+
 func _ready() -> void:
 	$Panel.hide()
 	$Settings.hide()
 	get_tree().paused = false
+	load_settings()
 	
 	$Settings/Panel/vBox1/VolumeSlider.value = db_to_linear(AudioServer.get_bus_volume_db(_bus))
 
@@ -52,6 +55,7 @@ func _on_exit_settings_pressed() -> void:
 @onready var _bus := AudioServer.get_bus_index(Audio_Bus)
 
 func _on_volume_slider_value_changed(_value: float) -> void:
+	save()
 	AudioServer.set_bus_volume_db(_bus, linear_to_db($Settings/Panel/vBox1/VolumeSlider.value))
 	$Settings/Panel/vBox1/Volume.text = "Volume: " + str($Settings/Panel/vBox1/VolumeSlider.value*100)
 
@@ -65,6 +69,7 @@ func _on_fov_slider_value_changed(_value: float) -> void:
 
 # Window mode
 func _on_screen_types_item_selected(index: int) -> void:
+	save()
 	match index:
 		0:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
@@ -75,6 +80,7 @@ func _on_screen_types_item_selected(index: int) -> void:
 
 # Resolutions
 func _on_resolution_choices_item_selected(index: int) -> void:
+	save()
 	match index:
 		0:
 			DisplayServer.window_set_size(Vector2i(1920, 1200))
@@ -93,6 +99,7 @@ func _on_resolution_choices_item_selected(index: int) -> void:
 
 # Anti-Aliasing
 func _on_anti_aliasing_choices_item_selected(index: int) -> void:
+	save()
 	match index:
 		0:
 			get_viewport().msaa_3d = Viewport.MSAA_8X
@@ -107,6 +114,7 @@ func _on_anti_aliasing_choices_item_selected(index: int) -> void:
 
 # Vsync mode
 func _on_vsync_choices_item_selected(index: int) -> void:
+	save()
 	match index:
 		0:
 			DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
@@ -114,3 +122,70 @@ func _on_vsync_choices_item_selected(index: int) -> void:
 			DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ADAPTIVE)
 		2:
 			DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED)
+
+
+func save():
+	var file = FileAccess.open(save_path, FileAccess.WRITE)
+	
+	file.store_var(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master")), true)
+	file.store_var(DisplayServer.window_get_mode(), true)
+	file.store_var($Settings/Panel/vBox1/ResolutionChoices.get_selected_id(), true)
+	file.store_var(get_viewport().msaa_3d, true)
+	file.store_var(get_viewport().use_taa, true)
+	file.store_var(DisplayServer.window_get_vsync_mode(), true)
+	file.store_var($Settings/Panel/vBox1/VolumeSlider.value, true)
+	file.store_var($Settings/Panel/vBox1/ScreenTypes.get_selected_id(), true)
+	file.store_var($Settings/Panel/vBox1/AntiAliasingChoices.get_selected_id(), true)
+	file.store_var($Settings/Panel/vBox1/VsyncChoices.get_selected_id(), true)
+	
+
+func load_settings():
+	if FileAccess.file_exists(save_path):
+		var file := FileAccess.open(save_path, FileAccess.READ)
+	
+		if file == null:
+			print("Failed to open file")
+			push_error("Failed to open settings data")
+			return
+	
+		print("=== LOAD INFO ===")
+	
+		var bus_volume_db = file.get_var()
+		AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), bus_volume_db)
+		print("Volume - " + str(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master"))))
+		
+		var window_mode = file.get_var()
+		DisplayServer.window_set_mode(window_mode)
+		print("Window Mode - " + str(window_mode))
+		
+		var resolution_dropdown_vis = file.get_var()
+		$Settings/Panel/vBox1/ResolutionChoices.select(resolution_dropdown_vis)
+		print("Resolution set (might be broken)")
+		
+		var anti_aliasing = file.get_var()
+		get_viewport().msaa_3d = anti_aliasing
+		print("Anti-Aliasing - " + str(anti_aliasing))
+		
+		var temporal_aa = file.get_var()
+		get_viewport().use_taa = temporal_aa
+		print("Using Temportal AA - " + str(temporal_aa))
+		
+		var vsync_mode = file.get_var()
+		DisplayServer.window_set_vsync_mode(vsync_mode)
+		print("Vsync mode - " + str(vsync_mode))
+		
+		var volume_slider_value = file.get_var()
+		$Settings/Panel/vBox1/VolumeSlider.value = volume_slider_value
+		
+		var screen_type_value = file.get_var()
+		$Settings/Panel/vBox1/ScreenTypes.select(screen_type_value)
+		
+		var aa_value = file.get_var()
+		$Settings/Panel/vBox1/AntiAliasingChoices.select(aa_value)
+		
+		var vsync_value = file.get_var()
+		$Settings/Panel/vBox1/VsyncChoices.select(vsync_value)
+		
+	elif not FileAccess.file_exists(save_path):
+		print("No settings data detected")
+		push_error("There is no settings data: " + save_path)

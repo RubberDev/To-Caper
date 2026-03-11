@@ -1193,10 +1193,33 @@ layout_mode = 2
 theme = ExtResource("13_2bdfd")
 text = "Play"
 
+[node name="Button" type="Button" parent="Control/Buttons" unique_id=1151225507]
+layout_mode = 2
+theme = ExtResource("13_2bdfd")
+text = "Controls"
+
 [node name="Quit" type="Button" parent="Control/Buttons" unique_id=932084781]
 layout_mode = 2
 theme = ExtResource("13_2bdfd")
 text = "Quit"
 
+[node name="Controls" type="Label" parent="Control" unique_id=623372203]
+visible = false
+layout_mode = 0
+offset_left = 60.0
+offset_top = 107.0
+offset_right = 378.0
+offset_bottom = 582.0
+text = "PC -
+WASD to Walk
+E to Interact
+Hold Shift to Sprint
+Space to Jump
+Left Control to Crouch
+
+Controller -
+Coming soon"
+
 [connection signal="button_down" from="Control/Buttons/Play" to="." method="_on_play_button_down"]
+[connection signal="button_down" from="Control/Buttons/Button" to="." method="_on_button_button_down"]
 [connection signal="button_down" from="Control/Buttons/Quit" to="." method="_on_quit_button_down"]

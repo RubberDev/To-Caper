@@ -73,7 +73,6 @@ layout_mode = 2
 text = "Quit"
 
 [node name="Settings" type="Control" parent="." unique_id=1881184405]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
