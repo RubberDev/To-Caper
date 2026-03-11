@@ -33,7 +33,7 @@ MyNamesRubber
 StaticBrain
 
 Music -
-Add later
+Clair de Lune by Claude Debussy (Performed by Laurens Goedhart)
 
 Software -
 Godot 4.5
@@ -48,13 +48,14 @@ Freesound.org
 PolyHaven
 kenney.nl
 remove.bg
+wikipedia
 
 Gameplay Testers -
 MyNamesRubber
 StaticBrain
 BlooSilly
-GameTester1
-GameTester2
-GameTester3
-Director of Marketing Directions
-Support Staff 1
+GameTester1 (Anonymous)
+GameTester2 (Anonymous)
+GameTester3 (Anonymous)
+Director of Marketing Directions (Anonymous)
+Support Staff 1 (Anonymous)

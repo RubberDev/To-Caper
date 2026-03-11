@@ -47,6 +47,7 @@
 [ext_resource type="Script" uid="uid://bm73wrxad5xa4" path="res://Levels/GameLevel/Scripts/propane_tank.gd" id="45_k54xu"]
 [ext_resource type="Texture2D" uid="uid://baiv563pxv61x" path="res://Textures/asphalt_road_04.png" id="46_crscw"]
 [ext_resource type="PackedScene" uid="uid://dxnbjv7xocpg7" path="res://Objects/awesome_store.tscn" id="46_k54xu"]
+[ext_resource type="Script" uid="uid://glirm4tqw2wq" path="res://Objects/Scripts/awesome_store_trigger.gd" id="48_oe8pn"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_yvdnq"]
 panorama = ExtResource("1_u2db0")
@@ -338,7 +339,6 @@ script = ExtResource("1_346x0")
 
 [node name="Player" parent="." unique_id=415425465 instance=ExtResource("3_b6m8f")]
 transform = Transform3D(-0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, -0.70710677, 0, 3.6154003, 0)
-Process = false
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=752345499]
 
@@ -1414,9 +1414,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75.26236, 123.42253, 44.6334
 [node name="Money5" parent="Part3" unique_id=1121311624 instance=ExtResource("13_pbw2v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75.44339, 132.14569, 39.114758)
 
-[node name="Player" parent="Part3" unique_id=617276853 instance=ExtResource("3_b6m8f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54.037476, 143.62679, 40.908005)
-
 [node name="End" type="Node3D" parent="." unique_id=1168425865]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 627.63794, -340.763, 0)
 
@@ -1434,6 +1431,7 @@ material = SubResource("StandardMaterial3D_d1u84")
 
 [node name="AwesomeStore" parent="End" unique_id=1872873046 instance=ExtResource("46_k54xu")]
 transform = Transform3D(-2.1855694e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.1855694e-08, 122.02643, 25.153534, -3.3271468)
+script = ExtResource("48_oe8pn")
 
 [node name="EndTrig" type="Area3D" parent="End/AwesomeStore" unique_id=106109200]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.9648438, -7.9194336)
@@ -1446,6 +1444,7 @@ shape = SubResource("BoxShape3D_crscw")
 [connection signal="timeout" from="Part1/Busstop/Marlon/Timer" to="Part1/Busstop/Marlon" method="_on_timer_timeout"]
 [connection signal="timeout" from="Part1/Foodtruck/Timer" to="Part1/Foodtruck" method="_on_timer_timeout"]
 [connection signal="body_entered" from="Part3/Propane_Tank/Pipe/Area3D" to="Part3/Propane_Tank" method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="End/AwesomeStore/EndTrig" to="End/AwesomeStore" method="_on_end_trig_body_entered"]
 
 [editable path="Part1/StreetPiece_01"]
 [editable path="Part1/StreetPiece_01/LightPost"]

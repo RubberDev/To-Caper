@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://csjyb2qbjjm2p"]
+
+[ext_resource type="Texture2D" uid="uid://6m3tltyfrmjh" path="res://Textures/wallpaper.png" id="1_u3gq5"]
+
+[node name="Control" type="Control" unique_id=603341739]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=657312607]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_u3gq5")
+expand_mode = 2
