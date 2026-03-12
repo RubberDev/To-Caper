@@ -68,6 +68,7 @@ func Jail_Mouse():
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	$AnimationTree.active = true
+	load_check()
 
 func _physics_process(delta: float) -> void:
 	handle_anims(delta)
@@ -169,3 +170,37 @@ func _input(event: InputEvent) -> void:
 		if is_crouched == false:
 			sprinting = false
 			SPEED = DEFAULT_SPEED
+
+
+var save_path = "user://CaperCheckpoint"
+func save_check():
+	var file = FileAccess.open(save_path, FileAccess.WRITE)
+	
+	file.store_var(self.global_position)
+	print("Save player location called")
+	file.store_var(money)
+	file.store_var($Control/Panel/Label.text)
+	
+
+func load_check():
+	if FileAccess.file_exists(save_path):
+		var file := FileAccess.open(save_path, FileAccess.READ)
+		
+		if file == null:
+			print("Unable to open save data")
+			push_error("Unable to open save data")
+			return
+		
+		var player_location = file.get_var()
+		self.global_position = player_location
+		print("Player location loaded")
+		
+		var player_money = file.get_var()
+		money = player_money
+		
+		var money_count = file.get_var()
+		$Control/Panel/Label.text = money_count
+		print("Player money loaded")
+	
+	elif not FileAccess.file_exists(save_path):
+		print("File does not exist " + save_path)

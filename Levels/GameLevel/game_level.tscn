@@ -47,6 +47,7 @@
 [ext_resource type="Script" uid="uid://bm73wrxad5xa4" path="res://Levels/GameLevel/Scripts/propane_tank.gd" id="45_k54xu"]
 [ext_resource type="Texture2D" uid="uid://baiv563pxv61x" path="res://Textures/asphalt_road_04.png" id="46_crscw"]
 [ext_resource type="PackedScene" uid="uid://dxnbjv7xocpg7" path="res://Objects/awesome_store.tscn" id="46_k54xu"]
+[ext_resource type="Script" uid="uid://3ul80ebsi4qr" path="res://Levels/GameLevel/Scripts/checkpoints.gd" id="48_d1u84"]
 [ext_resource type="Script" uid="uid://glirm4tqw2wq" path="res://Objects/Scripts/awesome_store_trigger.gd" id="48_oe8pn"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_yvdnq"]
@@ -333,6 +334,12 @@ size = Vector3(4.4128723, 6.164795, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_oe8pn"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_d1u84"]
+size = Vector3(1, 6.145874, 23.619263)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rpgpn"]
+size = Vector3(1, 9.05481, 36.163574)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_1ygiw"]
 size = Vector3(609.682, 1, 419.81976)
 
@@ -415,7 +422,7 @@ size = Vector3(2.7138672, 1, 19.135773)
 material = ExtResource("6_htcji")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="Beginning/CSGCombiner3D" unique_id=1594984947]
-transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, -17.329386, -5.612054, 13.332744)
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, -17.329386, -5.64086, 13.554456)
 use_collision = true
 size = Vector3(5.4282227, 1, 3.3584137)
 material = ExtResource("6_htcji")
@@ -1255,7 +1262,7 @@ transform = Transform3D(1, 0, 0, 0, 0.44658822, -0.12217027, 0, 0.02602383, 2.09
 transform = Transform3D(1, 0, 0, 0, 0.42842177, 0.6043602, 0, -0.12873647, 2.0112486, -74.77112, 122.01995, 44.815285)
 
 [node name="RockPlatform6" parent="Part3" unique_id=519114687 instance=ExtResource("14_aiiw7")]
-transform = Transform3D(1, 0, 0, 0, 0.35894608, 1.2533313, 0, -0.26697564, 1.6850915, -74.77112, 124.10367, 48.991737)
+transform = Transform3D(1, 0, 0, 0, 0.35894608, 1.2533313, 0, -0.26697564, 1.6850915, -74.77112, 124.002945, 48.937794)
 
 [node name="RockPlatform8" parent="Part3" unique_id=1764203798 instance=ExtResource("14_aiiw7")]
 transform = Transform3D(0.9585268, -0.28500253, 0, 0.28500253, 0.9585268, 0, 0, 0, 1, -75.64993, 125.31544, 37.650665)
@@ -1432,6 +1439,7 @@ shape = SubResource("BoxShape3D_crscw")
 
 [node name="Checkpoints" type="Node3D" parent="." unique_id=1457550216]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 197.12376, 39.863693, 0)
+script = ExtResource("48_d1u84")
 
 [node name="Checkpoint1" type="Node3D" parent="Checkpoints" unique_id=1315095203]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -183.83159, -37.14873, 0)
@@ -1445,16 +1453,20 @@ shape = SubResource("BoxShape3D_oe8pn")
 [node name="Checkpoint2" type="Node3D" parent="Checkpoints" unique_id=1523990472]
 transform = Transform3D(0.9981719, 0, -0.0604388, 0, 1, 0, 0.0604388, 0, 0.9981719, -4.1013184, -37.148735, 33.481915)
 
-[node name="Area3D" type="Area3D" parent="Checkpoints/Checkpoint2" unique_id=1817875642]
+[node name="Area3D2" type="Area3D" parent="Checkpoints/Checkpoint2" unique_id=1817875642]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoints/Checkpoint2/Area3D" unique_id=1147679899]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoints/Checkpoint2/Area3D2" unique_id=1147679899]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.1035156e-05, 1.4450073, -0.05998993)
+shape = SubResource("BoxShape3D_d1u84")
 
 [node name="Checkpoint3" type="Node3D" parent="Checkpoints" unique_id=1691752242]
 transform = Transform3D(0.9981719, 0, -0.0604388, 0, 1, 0, 0.0604388, 0, 0.9981719, 127.96193, -10.607933, 42.54167)
 
-[node name="Area3D" type="Area3D" parent="Checkpoints/Checkpoint3" unique_id=2113972905]
+[node name="Area3D3" type="Area3D" parent="Checkpoints/Checkpoint3" unique_id=2113972905]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoints/Checkpoint3/Area3D" unique_id=1033313227]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoints/Checkpoint3/Area3D3" unique_id=1033313227]
+transform = Transform3D(0.9998797, 0, 0.01551535, 0, 1, 0, -0.01551535, 0, 0.9998797, -6.990509, -1.4179077, -0.7317505)
+shape = SubResource("BoxShape3D_rpgpn")
 
 [node name="Reload_Box" type="Area3D" parent="Checkpoints" unique_id=1315076388]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -140.3073, -39.863693, 16.15406)
@@ -1472,6 +1484,9 @@ shape = SubResource("BoxShape3D_1ygiw")
 [connection signal="timeout" from="Part1/Foodtruck/Timer" to="Part1/Foodtruck" method="_on_timer_timeout"]
 [connection signal="body_entered" from="Part3/Propane_Tank/Pipe/Area3D" to="Part3/Propane_Tank" method="_on_area_3d_body_entered"]
 [connection signal="body_entered" from="End/AwesomeStore/EndTrig" to="End/AwesomeStore" method="_on_end_trig_body_entered"]
+[connection signal="body_entered" from="Checkpoints/Checkpoint1/Area3D" to="Checkpoints" method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="Checkpoints/Checkpoint2/Area3D2" to="Checkpoints" method="_on_area_3d_2_body_entered"]
+[connection signal="body_entered" from="Checkpoints/Checkpoint3/Area3D3" to="Checkpoints" method="_on_area_3d_3_body_entered"]
 [connection signal="body_entered" from="Checkpoints/Reload_Box" to="Checkpoints/Reload_Box" method="_on_body_entered"]
 
 [editable path="Part1/StreetPiece_01"]
