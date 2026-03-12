@@ -337,6 +337,9 @@ size = Vector3(4.4128723, 6.164795, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_d1u84"]
 size = Vector3(1, 6.145874, 23.619263)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_fphjv"]
+size = Vector3(1, 11.583801, 22.214417)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_rpgpn"]
 size = Vector3(1, 9.05481, 36.163574)
 
@@ -1447,7 +1450,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -183.83159, -37.14873, 0)
 [node name="Area3D" type="Area3D" parent="Checkpoints/Checkpoint1" unique_id=1989573078]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoints/Checkpoint1/Area3D" unique_id=854743259]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.245466, 0.47105217, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.9908066, 0.47105217, 0)
 shape = SubResource("BoxShape3D_oe8pn")
 
 [node name="Checkpoint2" type="Node3D" parent="Checkpoints" unique_id=1523990472]
@@ -1458,6 +1461,15 @@ transform = Transform3D(0.9981719, 0, -0.0604388, 0, 1, 0, 0.0604388, 0, 0.99817
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoints/Checkpoint2/Area3D2" unique_id=1147679899]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.1035156e-05, 1.4450073, -0.05998993)
 shape = SubResource("BoxShape3D_d1u84")
+
+[node name="Checkpoint4" type="Node3D" parent="Checkpoints" unique_id=303804885]
+transform = Transform3D(0.9981719, 0, -0.0604388, 0, 1, 0, 0.0604388, 0, 0.9981719, -81.19785, -37.148735, 4.887125)
+
+[node name="Area3D4" type="Area3D" parent="Checkpoints/Checkpoint4" unique_id=1154805755]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoints/Checkpoint4/Area3D4" unique_id=1530416624]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5189514, -2.0553284)
+shape = SubResource("BoxShape3D_fphjv")
 
 [node name="Checkpoint3" type="Node3D" parent="Checkpoints" unique_id=1691752242]
 transform = Transform3D(0.9981719, 0, -0.0604388, 0, 1, 0, 0.0604388, 0, 0.9981719, 127.96193, -10.607933, 42.54167)
@@ -1486,6 +1498,7 @@ shape = SubResource("BoxShape3D_1ygiw")
 [connection signal="body_entered" from="End/AwesomeStore/EndTrig" to="End/AwesomeStore" method="_on_end_trig_body_entered"]
 [connection signal="body_entered" from="Checkpoints/Checkpoint1/Area3D" to="Checkpoints" method="_on_area_3d_body_entered"]
 [connection signal="body_entered" from="Checkpoints/Checkpoint2/Area3D2" to="Checkpoints" method="_on_area_3d_2_body_entered"]
+[connection signal="body_entered" from="Checkpoints/Checkpoint4/Area3D4" to="Checkpoints" method="_on_area_3d_4_body_entered"]
 [connection signal="body_entered" from="Checkpoints/Checkpoint3/Area3D3" to="Checkpoints" method="_on_area_3d_3_body_entered"]
 [connection signal="body_entered" from="Checkpoints/Reload_Box" to="Checkpoints/Reload_Box" method="_on_body_entered"]
 

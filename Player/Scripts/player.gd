@@ -176,10 +176,11 @@ var save_path = "user://CaperCheckpoint"
 func save_check():
 	var file = FileAccess.open(save_path, FileAccess.WRITE)
 	
+	$Control/AnimationPlayer.play("saved")
+	
 	file.store_var(self.global_position)
 	print("Save player location called")
 	file.store_var(money)
-	
 
 func load_check():
 	if FileAccess.file_exists(save_path):
