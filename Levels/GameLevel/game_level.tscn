@@ -1301,7 +1301,7 @@ transform = Transform3D(2.6996133, -0.27788472, 0, 0.780939, 0.96061444, 0, 0, 0
 transform = Transform3D(2.6996133, -0.27788472, 0, 0.780939, 0.96061444, 0, 0, 0, 1, -76.33069, 136.34329, 33.195614)
 
 [node name="Fireplatform" type="CSGBox3D" parent="Part3" unique_id=1803443944]
-transform = Transform3D(1.1969604, 0, 0, 0, 0.2447986, 0, 0, 0, 8.690083, -29.576843, 142.84848, 42)
+transform = Transform3D(1.1969604, 0, 0, 0, 0.2447986, 0, 0, 0, 8.690083, -29.576843, 142.57973, 42)
 use_collision = true
 size = Vector3(24.794556, 4.422455, 1)
 material = ExtResource("25_xpj2v")
@@ -1362,7 +1362,7 @@ sides = 22
 material = ExtResource("36_gtx1n")
 
 [node name="Pipe3" type="CSGCombiner3D" parent="Part3" unique_id=318829006]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82.736115, -126.93614, 44.83388)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82.736115, -126.93614, 44.250294)
 use_collision = true
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="Part3/Pipe3" unique_id=1241048674]

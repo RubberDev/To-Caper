@@ -179,7 +179,6 @@ func save_check():
 	file.store_var(self.global_position)
 	print("Save player location called")
 	file.store_var(money)
-	file.store_var($Control/Panel/Label.text)
 	
 
 func load_check():
@@ -197,10 +196,6 @@ func load_check():
 		
 		var player_money = file.get_var()
 		money = player_money
-		
-		var money_count = file.get_var()
-		$Control/Panel/Label.text = money_count
-		print("Player money loaded")
 	
 	elif not FileAccess.file_exists(save_path):
 		print("File does not exist " + save_path)
