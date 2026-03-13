@@ -45,6 +45,7 @@
 [ext_resource type="PackedScene" uid="uid://cbb80q10r0cdb" path="res://Objects/propane_tank.tscn" id="44_2lhnd"]
 [ext_resource type="PackedScene" uid="uid://d2q0glwt5b8tl" path="res://Particles/fire_jet.tscn" id="45_04qmq"]
 [ext_resource type="Script" uid="uid://bm73wrxad5xa4" path="res://Levels/GameLevel/Scripts/propane_tank.gd" id="45_k54xu"]
+[ext_resource type="AudioStream" uid="uid://cu3wci4faluic" path="res://Sound/flame_jet.wav" id="45_rpgpn"]
 [ext_resource type="Texture2D" uid="uid://baiv563pxv61x" path="res://Textures/asphalt_road_04.png" id="46_crscw"]
 [ext_resource type="PackedScene" uid="uid://dxnbjv7xocpg7" path="res://Objects/awesome_store.tscn" id="46_k54xu"]
 [ext_resource type="Script" uid="uid://3ul80ebsi4qr" path="res://Levels/GameLevel/Scripts/checkpoints.gd" id="48_d1u84"]
@@ -341,7 +342,7 @@ size = Vector3(1, 6.145874, 23.619263)
 size = Vector3(1, 11.583801, 22.214417)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rpgpn"]
-size = Vector3(1, 9.05481, 36.163574)
+size = Vector3(1, 9.05481, 29.793884)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1ygiw"]
 size = Vector3(609.682, 1, 419.81976)
@@ -1342,6 +1343,12 @@ shape = SubResource("CylinderShape3D_04qmq")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Part3/Propane_Tank" unique_id=2045160498]
 libraries/ = SubResource("AnimationLibrary_d1u84")
 
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Part3/Propane_Tank" unique_id=1008731096]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0671997, 0.50058746, -8.942581)
+stream = ExtResource("45_rpgpn")
+autoplay = true
+max_distance = 40.0
+
 [node name="Money" parent="Part3" unique_id=428547087 instance=ExtResource("34_f5lkr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.428406, 144.33882, 42)
 
@@ -1477,7 +1484,7 @@ transform = Transform3D(0.9981719, 0, -0.0604388, 0, 1, 0, 0.0604388, 0, 0.99817
 [node name="Area3D3" type="Area3D" parent="Checkpoints/Checkpoint3" unique_id=2113972905]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoints/Checkpoint3/Area3D3" unique_id=1033313227]
-transform = Transform3D(0.9998797, 0, 0.01551535, 0, 1, 0, -0.01551535, 0, 0.9998797, -6.990509, -1.4179077, -0.7317505)
+transform = Transform3D(0.9998859, 0, 0.015515212, 0, 1, 0, -0.015515212, 0, 0.9998859, -6.989807, -1.4179077, -0.67934227)
 shape = SubResource("BoxShape3D_rpgpn")
 
 [node name="Reload_Box" type="Area3D" parent="Checkpoints" unique_id=1315076388]
@@ -1495,6 +1502,7 @@ shape = SubResource("BoxShape3D_1ygiw")
 [connection signal="timeout" from="Part1/Busstop/Marlon/Timer" to="Part1/Busstop/Marlon" method="_on_timer_timeout"]
 [connection signal="timeout" from="Part1/Foodtruck/Timer" to="Part1/Foodtruck" method="_on_timer_timeout"]
 [connection signal="body_entered" from="Part3/Propane_Tank/Pipe/Area3D" to="Part3/Propane_Tank" method="_on_area_3d_body_entered"]
+[connection signal="finished" from="Part3/Propane_Tank/AudioStreamPlayer3D" to="Part3/Propane_Tank" method="_on_audio_stream_player_3d_finished"]
 [connection signal="body_entered" from="End/AwesomeStore/EndTrig" to="End/AwesomeStore" method="_on_end_trig_body_entered"]
 [connection signal="body_entered" from="Checkpoints/Checkpoint1/Area3D" to="Checkpoints" method="_on_area_3d_body_entered"]
 [connection signal="body_entered" from="Checkpoints/Checkpoint2/Area3D2" to="Checkpoints" method="_on_area_3d_2_body_entered"]
