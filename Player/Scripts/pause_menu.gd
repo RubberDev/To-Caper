@@ -22,7 +22,7 @@ func _on_save_pressed() -> void:
 
 # Load game
 func _on_load_pressed() -> void:
-	pass # Replace with function body.
+	$"../../Player".load_check()
 
 # Open settings menu
 func _on_settings_pressed() -> void:

@@ -109,6 +109,8 @@ func _physics_process(delta: float) -> void:
 
 	var input_dir := Input.get_vector("Left", "Right", "Forward", "Back")
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	var vel2d := Vector2(velocity.x, velocity.z)
+	var DEACC : float = SPEED * 0.1
 	if direction:
 		
 		velocity.x = direction.x * SPEED
@@ -121,8 +123,16 @@ func _physics_process(delta: float) -> void:
 			elif is_crouched == false and sprinting == true:
 				Current_Anim = SPRINT
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		velocity.z = move_toward(velocity.z, 0, SPEED)
+		#velocity.x = move_toward(velocity.x, 0, SPEED)
+		#velocity.z = move_toward(velocity.z, 0, SPEED)
+		if is_on_floor():
+			DEACC = SPEED * 0.1
+		elif not is_on_floor():
+			DEACC = SPEED * 0.01
+		
+		vel2d = vel2d.move_toward(Vector2.ZERO, DEACC)
+		velocity.x = vel2d.x
+		velocity.z = vel2d.y
 		if is_on_floor():
 			if is_crouched == false:
 				Current_Anim = IDLE

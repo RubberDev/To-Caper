@@ -19,4 +19,4 @@ func _on_area_3d_3_body_entered(body: Node3D) -> void:
 func _on_area_3d_4_body_entered(body: Node3D) -> void:
 	if body is Player:
 		body.save_check()
-		$Checkpoint3.set_deferred("process_mode", PROCESS_MODE_DISABLED)
+		$Checkpoint4.set_deferred("process_mode", PROCESS_MODE_DISABLED)
