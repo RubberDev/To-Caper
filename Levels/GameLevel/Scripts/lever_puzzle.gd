@@ -15,3 +15,5 @@ func interact():
 		$AnimationPlayer.play("pullOn")
 		IntText = ""
 		$AnimationPlayer2.play("Platform")
+		$LeverToggle.play()
+		$MachineDrone.play()

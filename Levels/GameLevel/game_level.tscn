@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://y01nc0no6pym" path="res://Player/Player.tscn" id="3_b6m8f"]
 [ext_resource type="Texture2D" uid="uid://6lrfq3q2c5bq" path="res://Textures/rock.png" id="4_cb68q"]
 [ext_resource type="Texture2D" uid="uid://b0agfb7xjttyi" path="res://Textures/grass_surface.png" id="5_fa5cs"]
+[ext_resource type="AudioStream" uid="uid://xydp2ujxn8mt" path="res://Sound/AmbientWind.wav" id="5_uy75w"]
 [ext_resource type="PackedScene" uid="uid://bwb3lf4nujqjp" path="res://Objects/house.tscn" id="6_b6m8f"]
 [ext_resource type="Material" uid="uid://fcsahucc3s1g" path="res://Materials/Dirt_01.tres" id="6_gtbq3"]
 [ext_resource type="Material" uid="uid://b878hbskn5k3x" path="res://Materials/Rocks.tres" id="6_htcji"]
@@ -31,6 +32,7 @@
 [ext_resource type="ArrayOccluder3D" uid="uid://bdy1ciwg6qcml" path="res://Levels/GameLevel/Occluders/game_level3.occ" id="23_04qmq"]
 [ext_resource type="PackedScene" uid="uid://tdlf47wmgnu2" path="res://Objects/chair_02.tscn" id="23_d55es"]
 [ext_resource type="PackedScene" uid="uid://b4diasxp813si" path="res://Characters/Chazz.tscn" id="24_11v05"]
+[ext_resource type="AudioStream" uid="uid://262bhyf18a8u" path="res://Sound/Campfire.wav" id="24_fphjv"]
 [ext_resource type="Material" uid="uid://rki8oc7x474d" path="res://Materials/concrete_01.tres" id="25_xpj2v"]
 [ext_resource type="PackedScene" uid="uid://duqalhm7p71ih" path="res://Objects/fence.tscn" id="26_m3kba"]
 [ext_resource type="PackedScene" uid="uid://b2u73lik4dojp" path="res://Objects/board.tscn" id="27_xw0dn"]
@@ -41,6 +43,8 @@
 [ext_resource type="Script" uid="uid://3nkl5lr803gi" path="res://Levels/GameLevel/Scripts/lever_puzzle.gd" id="36_8mddc"]
 [ext_resource type="Material" uid="uid://cxvgjdapex3tk" path="res://Materials/Metal_02.tres" id="36_322ci"]
 [ext_resource type="Material" uid="uid://c6e0hm0r68w6o" path="res://Materials/Metal_01.tres" id="36_gtx1n"]
+[ext_resource type="AudioStream" uid="uid://ym5fc4njdfr4" path="res://Sound/Lever.wav" id="37_i1ria"]
+[ext_resource type="AudioStream" uid="uid://bb13i72q8tolc" path="res://Sound/MachineDrone_01.wav" id="39_2tmyq"]
 [ext_resource type="PackedScene" uid="uid://dqbfna8sahwt2" path="res://Objects/campfire.tscn" id="40_a266h"]
 [ext_resource type="PackedScene" uid="uid://cbb80q10r0cdb" path="res://Objects/propane_tank.tscn" id="44_2lhnd"]
 [ext_resource type="PackedScene" uid="uid://d2q0glwt5b8tl" path="res://Particles/fire_jet.tscn" id="45_04qmq"]
@@ -367,6 +371,12 @@ transform = Transform3D(0.7299356, 0.25396872, -0.6345816, 0, 0.928408, 0.371562
 light_color = Color(0.904459, 0.82025677, 7.70092e-07, 1)
 shadow_enabled = true
 
+[node name="AmbientWind" type="AudioStreamPlayer3D" parent="Environment" unique_id=1173831267]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 47, 0)
+stream = ExtResource("5_uy75w")
+volume_db = 10.0
+unit_size = 100.0
+
 [node name="Beginning" type="Node3D" parent="." unique_id=827018081]
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Beginning" unique_id=1722479050]
@@ -596,6 +606,10 @@ occluder = ExtResource("23_04qmq")
 
 [node name="Campfire" parent="Beginning" unique_id=956886595 instance=ExtResource("40_a266h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.780038, -15.823114, 9.043909)
+
+[node name="FireSound" type="AudioStreamPlayer3D" parent="Beginning/Campfire" unique_id=950156590]
+stream = ExtResource("24_fphjv")
+max_distance = 20.0
 
 [node name="Part1" type="Node3D" parent="." unique_id=1607528292]
 
@@ -1031,6 +1045,16 @@ material = ExtResource("36_gtx1n")
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="Part1/Lever" unique_id=402287013]
 libraries/ = SubResource("AnimationLibrary_kpxfj")
+
+[node name="LeverToggle" type="AudioStreamPlayer3D" parent="Part1/Lever" unique_id=589775027]
+transform = Transform3D(1.1989406, 0, 0, 0, 1.1621774, 0, 0, 0, 1, 88.527466, 1.2680454, -43.48983)
+stream = ExtResource("37_i1ria")
+max_distance = 20.0
+
+[node name="MachineDrone" type="AudioStreamPlayer3D" parent="Part1/Lever" unique_id=320906784]
+transform = Transform3D(1.1989406, 0, 0, 0, 1.1621774, 0, 0, 0, 1, 79.94486, 0.8259945, -42.17649)
+stream = ExtResource("39_2tmyq")
+max_distance = 40.0
 
 [node name="BasePlate2" type="CSGBox3D" parent="Part1" unique_id=1640142225]
 transform = Transform3D(17.454697, 0, 0, 0, 1, 0, 0, 0, 16.813528, 77.74919, -1397.378, -44.75244)

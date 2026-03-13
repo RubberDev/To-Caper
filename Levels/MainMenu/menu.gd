@@ -5,6 +5,7 @@ extends Node3D
 func _ready() -> void:
 	$CharacterBase/AnimationPlayer.play("Idle")
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	$Env/AmbientWind.play()
 
 # Start game level
 func _on_play_button_down() -> void:
